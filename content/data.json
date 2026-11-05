@@ -1,0 +1,441 @@
+{
+  "profile": {
+    "name": "Geonwoo Bang",
+    "firstName": "Geonwoo",
+    "role": "MSc Student in Data Science",
+    "affiliation": "ETH Zürich",
+    "oneLiner": "Building trustworthy recommenders and LLM agents.",
+    "bio": "I am an MSc student in Data Science at ETH Zürich. I graduated summa cum laude from Sungkyunkwan University with a triple degree in Computer Science & Engineering, Statistics, and Computer Education. My research spans recommender systems, fairness and robustness, explainable AI, and LLM-based agents.",
+    "interests": [
+      "Recommender Systems",
+      "Trustworthy & Fair AI",
+      "LLM Agents",
+      "Explainable AI"
+    ]
+  },
+  "contact": {
+    "email": "g7199@g.skku.edu",
+    "github": "",
+    "scholar": "",
+    "linkedin": "https://www.linkedin.com/in/g7199/",
+    "cv": "content/cv.pdf"
+  },
+  "me": "Geonwoo Bang",
+  "publications": [
+    {
+      "id": "propensity-weighted-reflection",
+      "title": "Propensity-Weighted Reflection for Recovering Poisoned Recommenders under Partial Identification",
+      "authors": [
+        "Geonwoo Bang",
+        "et al."
+      ],
+      "venue": "WSDM 2027",
+      "year": 2027,
+      "type": "conference",
+      "badge": "",
+      "selected": true,
+      "links": {},
+      "bibtex": "",
+      "cover": "content/images/pwr-overview.png",
+      "images": [
+        "content/images/pwr-overview.png"
+      ],
+      "body": "## Abstract\nRecommender systems are vulnerable to data poisoning, while defenses act primarily before or during training. We study post-training recovery when a detector flags only some injected fake profiles. Retraining on the partially cleaned data leaves most of the attack in place. The recovery target uses a propensity correction that subtracts each caught fake in proportion to the detection rate and accounts in expectation for poison missed by the detector. The resulting negative weights can make the training objective indefinite and the solve unstable. We propose Mirror, which deletes each caught interaction and re-inserts a reflection based on the model’s prediction with positive weight. This realizes the correction as reflected training data, leaves the model’s native trainer unchanged, and avoids the indefinite signed formulation. The construction requires a loss with an invertible label map and is instantiated for matrix factorization, graph, and sequential recommenders. For squared error, each round provably reduces the debiased objective. Mirror estimates the missed rate from the attack footprint and each flag’s reliability from the detector posterior, so the same correction handles both detector errors. Against a real detector not developed by the authors and an attacker that obfuscates its profiles, Mirror outperforms retraining in all three model families, with the largest advantage under partial detection, while preserving recommendation quality for genuine users. Controlled sweeps of the identification rate isolate the mechanism: Mirror removes the attack where retraining does not, across eleven datasets and three model families.",
+      "status": "accepted",
+      "short": "Propensity-Weighted Reflection"
+    },
+    {
+      "id": "whose-fairness",
+      "title": "Whose Fairness? Auditing Exposure Fairness When AI Agents Read Rankings",
+      "authors": [
+        "J. Seo",
+        "Geonwoo Bang",
+        "et al."
+      ],
+      "venue": "WSDM 2027",
+      "year": 2027,
+      "type": "conference",
+      "badge": "",
+      "selected": false,
+      "links": {},
+      "bibtex": "",
+      "cover": "content/images/whose-fairness-overview.png",
+      "images": [
+        "content/images/whose-fairness-overview.png"
+      ],
+      "body": "## Abstract\nExposure fairness is computed rather than observed. Every metric weights ranks through an examination curve, conventionally treated as one known measurement instrument. AI agents break that premise. In a bias-controlled study of eight LLMs across six families, agent readers exhibit distinct positional curves, including mild primacy, near-flat behavior, mid-list humps, and reversed primacy. None can stand in for a single human model. The difficulty is not one uncertain curve but several realized at once, so the instrument is set-valued and exposure fairness is only partially identified. Standard existence-style auditing then fails: a ranking can be certified by some plausible curve while every realized reader is treated unfairly. On one workload, calibrating to the human curve leaves the worst-served agent reader worse off than no intervention at all. We characterize this failure, show that the exact worst case and certificate expiry are computable from the set, and derive a min–max robust ranking policy as one linear program. Across four domains, an oracle told the realized curve still pays about a quarter of the fairness premium, the rest being the price of serving all readers at once, while robustness costs at most 0.005 NDCG beyond human-calibrated fairness. The residual ambiguity falls on individual providers. For 27–73% of the top-15, even the direction of exposure harm is unidentified, yet a group-level audit averages that disagreement away. On LastFM, changing the aggregation level produces a thirty-fold gap.",
+      "status": "accepted"
+    },
+    {
+      "id": "evol",
+      "title": "EVOL: Simulator-Guided Evolutionary Expert Synthesis for Deployment-Free Learning Path Recommendation",
+      "authors": [
+        "Geonwoo Bang",
+        "Dongho Kim",
+        "Moohong Min"
+      ],
+      "venue": "CIKM 2026",
+      "year": 2026,
+      "type": "conference",
+      "badge": "",
+      "selected": true,
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2610.03273",
+        "arxiv": "https://arxiv.org/abs/2610.03273"
+      },
+      "bibtex": "",
+      "cover": "content/images/evol-overview.svg",
+      "images": [
+        "content/images/evol-overview.svg"
+      ],
+      "body": "## Abstract\nReinforcement learning (RL) for learning path recommendation (LPR) faces two coupled obstacles. First, the policy must commit to a sequence of L concepts without intermediate feedback, producing a combinatorial search space that grows super-exponentially with L and provides reward only at the final step. Second, expert learning paths would be the natural cure for sparse-reward RL, but they do not exist in educational data, because student logs record what learners did, not what they should have done. We address both obstacles by importing a recipe from simulator-based demonstration learning in robotics: the knowledge tracing simulator is used both to synthesize per-learner expert demonstrations through evolutionary search and to train a deployment-free policy that distills these demonstrations into a feed-forward learner. Our framework, EVOL, instantiates this pipeline with an asymmetric actor-critic where the actor commits to deployment-realistic blind planning while the critic exploits the privileged simulator state during training. Across three datasets (ASSIST15, Junyi, and EdNet; 39-189 concepts) and path lengths L = 5, 10, and 20, EVOL surpasses 8 baselines spanning heuristic, sequential, RL, graph-enhanced RL, and LLM-enhanced methods. We further compare three imitation strategies (BC, AWR, and DAPG) and show that final performance is governed by the quality of evolutionary experts rather than by the particular imitation objective.",
+      "status": "accepted"
+    },
+    {
+      "id": "reforest",
+      "title": "ReForest: Interpretability Meets Reasoning in Isolation Forest",
+      "authors": [
+        "Juyoung Seo",
+        "Geonwoo Bang",
+        "Dongho Kim",
+        "Moohong Min"
+      ],
+      "venue": "PAKDD 2026",
+      "year": 2026,
+      "type": "conference",
+      "badge": "",
+      "selected": false,
+      "links": {
+        "doi": "https://doi.org/10.1007/978-981-92-1468-6_45",
+        "pdf": "https://arxiv.org/pdf/2610.37316",
+        "arxiv": "https://arxiv.org/abs/2610.37316"
+      },
+      "bibtex": "",
+      "cover": "content/images/reforest-overview.png",
+      "images": [
+        "content/images/reforest-overview.png"
+      ],
+      "body": "## Abstract\nStatistical anomaly detection methods like Isolation Forest are efficient but suffer from a critical semantic gap. They identify numerical rarities but fail to understand the contextual meaning of data, often missing subtle, context-dependent anomalies. Conversely, Large Language Models possess strong semantic reasoning capabilities but are prohibitively expensive and slow for large-scale deployment. To bridge this gap, we propose ReForest, a novel framework that synergizes the statistical efficiency of Isolation Forest with the reasoning power of LLMs. ReForest transforms the latent decision paths of Isolation Forest into natural-language explanations, enabling an LLM to refine anomaly detection through an uncertainty-aware dynamic ensemble. This approach allows the model to adaptively weigh statistical and semantic signals based on uncertainty-driven instance-level confidence. Extensive experiments on four real-world datasets (Healthcare, Finance) demonstrate that ReForest significantly outperforms baselines, achieving an average 21% improvement in Recall and a 10% gain in F1-score. Our framework not only improves detection performance but also enhances model transparency by grounding semantic narratives in statistical evidence, providing interpretable rationales essential for high-stakes decision-making."
+    },
+    {
+      "id": "adaptive-pii-detection",
+      "title": "Adaptive PII Detection via Evolutionary Orchestration and Multi-Agent Debate",
+      "authors": [
+        "Geonwoo Bang",
+        "Dongho Kim",
+        "Damin Kim",
+        "Moohong Min"
+      ],
+      "venue": "PAKDD 2026",
+      "year": 2026,
+      "type": "conference",
+      "badge": "",
+      "selected": true,
+      "links": {
+        "doi": "https://doi.org/10.1007/978-981-92-1947-6_42"
+      },
+      "bibtex": "",
+      "cover": "content/images/pii-overview.svg",
+      "images": [
+        "content/images/pii-overview.svg"
+      ],
+      "body": ""
+    },
+    {
+      "id": "llm-ahp",
+      "title": "Transforming User-Defined Criteria into Explainable Indicators with an Integrated LLM-AHP System",
+      "authors": [
+        "Geonwoo Bang",
+        "Dongho Kim",
+        "Moohong Min"
+      ],
+      "venue": "arXiv 2025",
+      "year": 2025,
+      "type": "preprint",
+      "badge": "",
+      "selected": false,
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2601.05267",
+        "arxiv": "https://arxiv.org/abs/2601.05267"
+      },
+      "bibtex": "",
+      "cover": "content/images/uniscore-overview.png",
+      "images": [
+        "content/images/uniscore-overview.png"
+      ],
+      "body": "## Abstract\nEvaluating complex texts across domains requires converting user defined criteria into quantitative, explainable indicators, which is a persistent challenge in search and recommendation systems. Single prompt LLM evaluations suffer from complexity and latency issues, while criterion specific decomposition approaches rely on naive averaging or opaque black-box aggregation methods. We present an interpretable aggregation framework combining LLM scoring with the Analytic Hierarchy Process. Our method generates criterion specific scores via LLM as judge, measures discriminative power using Jensen Shannon distance, and derives statistically grounded weights through AHP pairwise comparison matrices. Experiments on Amazon review quality assessment and depression related text scoring demonstrate that our approach achieves high explainability and operational efficiency while maintaining comparable predictive power, making it suitable for real time latency sensitive web services.",
+      "short": "LLM–AHP Indicators"
+    },
+    {
+      "id": "snap",
+      "title": "SNAP: Enhancing Long-Form Narrative Agents with Cell-Based Segmentation and Plan-Driven Dialogue Strategies",
+      "authors": [
+        "Geonwoo Bang",
+        "DongMyung Kim",
+        "Hayoung Oh"
+      ],
+      "venue": "KAIA 2025",
+      "year": 2025,
+      "type": "conference",
+      "badge": "",
+      "selected": false,
+      "links": {
+        "pdf": "https://arxiv.org/pdf/2601.11529",
+        "arxiv": "https://arxiv.org/abs/2601.11529"
+      },
+      "bibtex": "",
+      "cover": "content/images/snap-overview.png",
+      "images": [
+        "content/images/snap-overview.png"
+      ],
+      "body": "## Abstract\nLarge Language Models (LLMs) hold great potential for web-based interactive applications, including browser games, online education, and digital storytelling platforms. However, LLM-based conversational agents suffer from spatiotemporal distortions when responding to variant user inputs, failing to maintain consistency with provided scenarios. We propose SNAP (Story and Narrative-based Agent with Planning), a framework that structures narratives into Cells with explicit Plans to prevent narrative drift in web environments. By confining context within each Cell and employing detailed plans that specify spatiotemporal settings, character actions, and plot developments, SNAP enables coherent and scenario-consistent dialogues while adapting to diverse user responses. Via automated and human evaluations, we validate SNAP's superiority in narrative controllability, demonstrating effective scenario consistency despite variant user inputs in web-based interactive storytelling."
+    },
+    {
+      "id": "game-based-digital-therapy",
+      "title": "Methodology for Implementing a Game-based Digital Therapy Using Generative AI to Reduce Impulsivity in Game-addicted Adolescents",
+      "authors": [
+        "Geonwoo Bang",
+        "et al."
+      ],
+      "venue": "JKIICE 2024",
+      "year": 2024,
+      "type": "journal",
+      "badge": "",
+      "selected": false,
+      "links": {},
+      "bibtex": "",
+      "cover": "",
+      "images": [],
+      "body": "",
+      "short": "Game-based Digital Therapy"
+    }
+  ],
+  "projects": [
+    {
+      "id": "drawmind",
+      "title": "DrawMind: Gamified Art Therapy Platform for Mental Health Assessment",
+      "role": "Team Leader · Gold Prize @ SKKU AI Hackathon",
+      "year": "2025",
+      "desc": "A game-based drawing system for accessible mental health assessment.",
+      "tags": [
+        "Generative AI",
+        "Digital Therapeutics"
+      ],
+      "featured": true,
+      "links": {
+        "github": "https://github.com/heyludy/DrawMind",
+        "video": "https://www.youtube.com/watch?v=0UD_bNDpvCU"
+      },
+      "cover": "",
+      "images": [],
+      "body": "- Developed a game-based drawing system integrating clinical psychology literature via Dynamic Context Injection\n- Enhanced diagnostic accessibility through image-to-image generation that gives immersive visual feedback"
+    },
+    {
+      "id": "literall",
+      "title": "LiterALL: Gamified News Reading with Few-Shot Difficulty Adaptation",
+      "role": "AI Developer · Grand Prize @ SKKU AI Hackathon",
+      "year": "2024",
+      "desc": "Rewrites news to each reader’s level with few-shot prompting, then turns reading into a game of quizzes, EXP and levels.",
+      "tags": [
+        "Few-shot Prompting",
+        "Gamification",
+        "LLM"
+      ],
+      "featured": false,
+      "links": {
+        "github": "https://github.com/nim-od/LiterAll",
+        "slides": "https://pitch.com/v/literal-cfrna4"
+      },
+      "cover": "",
+      "images": [],
+      "body": "## Few-shot difficulty adaptation\nEach reader has a difficulty score from 0 to 100. For a given article, LiterALL retrieves three reference passages from a corpus of scored texts — the one closest to the reader’s score and the ones about 10% above and below it — and gives them to GPT as few-shot examples, so the rewritten article lands at the reader’s level.\n\n## Gamified reading\n- After reading, GPT writes three questions: a main-idea multiple choice, a detail multiple choice, and a short opinion question\n- Multiple-choice answers earn points; the short answer is graded by GPT as high / mid / low with feedback grounded in the article, so well-supported reasoning earns a bonus and unsupported claims lose points\n- Points accumulate as EXP, which raises the reader’s level, shown with a progress bar (“Lit UP!”)\n- New articles are recommended by picking ones far apart in embedding space, keeping topics varied",
+      "short": "LiterALL"
+    },
+    {
+      "id": "social-isolation-risk-mapping",
+      "title": "Social Isolation Risk Mapping",
+      "role": "Lead Data Analyst · Excellence Prize, Data Safety Zone Competition",
+      "year": "2023",
+      "desc": "Interpretable social-risk indices from telecom and financial data.",
+      "tags": [
+        "Data Analysis",
+        "AHP-JSD"
+      ],
+      "featured": false,
+      "links": {},
+      "cover": "",
+      "images": [],
+      "body": "- Developed AHP-JSD, a scoring framework combining the Analytic Hierarchy Process with Jensen-Shannon Distance\n- Applied it to telecom-financial data to identify youth isolation clusters with interpretable social risk indices"
+    }
+  ],
+  "skills": [
+    {
+      "name": "LLM Agents",
+      "group": "AI & ML"
+    },
+    {
+      "name": "Recommender Systems",
+      "group": "AI & ML"
+    },
+    {
+      "name": "Reinforcement Learning",
+      "group": "AI & ML"
+    },
+    {
+      "name": "Diffusion Models",
+      "group": "AI & ML"
+    },
+    {
+      "name": "Python",
+      "group": "Data & Tools"
+    },
+    {
+      "name": "Statistics",
+      "group": "Data & Tools"
+    }
+  ],
+  "education": [
+    {
+      "when": "Sep 2026 – Present",
+      "what": "MSc in Data Science",
+      "where": "ETH Zürich",
+      "detail": ""
+    },
+    {
+      "when": "Mar 2020 – Feb 2026",
+      "what": "Triple Degree Program · Summa Cum Laude",
+      "where": "Sungkyunkwan University",
+      "detail": "B.S. in Computer Science and Engineering — 4.44/4.5\nB.Econ. in Statistics — 4.5/4.5\nB.S. in Computer Education — 4.21/4.5"
+    }
+  ],
+  "experience": [
+    {
+      "kind": "research",
+      "when": "Mar 2025 – Present",
+      "what": "Research Assistant",
+      "where": "Motion AI Lab, Sungkyunkwan University",
+      "detail": "Implemented a real-time responsive motion matching system using motion capture data\nDeveloped keyframe extraction and motion compression using diffusion and reinforcement learning"
+    },
+    {
+      "kind": "research",
+      "when": "Jan 2024 – Jan 2025",
+      "what": "Research Assistant",
+      "where": "LAMDA Lab, Sungkyunkwan University",
+      "detail": "Core team member in securing a $5M national R&D grant on AI-based digital therapeutics\nDeveloped a generative AI NPC framework and co-authored 3 publications and a patent"
+    },
+    {
+      "kind": "professional",
+      "when": "Feb 2022 – Oct 2023",
+      "what": "Communications & IT Specialist (PO2)",
+      "where": "Republic of Korea Navy 2nd Fleet, Incheon",
+      "detail": "Operated military-grade satellite, microwave, and radio communication systems\nDeployed twice for North Korean drone threat response, ensuring flawless communication"
+    },
+    {
+      "kind": "teaching",
+      "when": "Spring 2025",
+      "what": "Information and Communication",
+      "where": "Sunrin High School",
+      "detail": "Lab Instructor · 20 students"
+    },
+    {
+      "kind": "teaching",
+      "when": "Fall 2024",
+      "what": "AI Basics & Uses",
+      "where": "Sungkyunkwan University",
+      "detail": "Teaching Assistant · 618 students"
+    },
+    {
+      "kind": "teaching",
+      "when": "Summer 2024",
+      "what": "Thesis Writing in Social Sciences using Python",
+      "where": "Sungkyunkwan University",
+      "detail": "Teaching Assistant · 524 students"
+    },
+    {
+      "kind": "teaching",
+      "when": "Spring 2024",
+      "what": "AI Basics & Uses",
+      "where": "Sungkyunkwan University",
+      "detail": "Teaching Assistant · 610 students"
+    },
+    {
+      "kind": "teaching",
+      "when": "Fall 2023",
+      "what": "AI Basics & Uses",
+      "where": "Sungkyunkwan University",
+      "detail": "Teaching Assistant · 589 students"
+    }
+  ],
+  "awards": [
+    {
+      "kind": "award",
+      "when": "2025",
+      "what": "Gold Prize – SKKU AI Hackathon",
+      "where": "SKKU"
+    },
+    {
+      "kind": "award",
+      "when": "2024",
+      "what": "Grand Prize – SKKU AI Hackathon",
+      "where": "SKKU"
+    },
+    {
+      "kind": "award",
+      "when": "2024",
+      "what": "Special Prize – K-PaaS Service Development Contest",
+      "where": "MSIT, Korea"
+    },
+    {
+      "kind": "award",
+      "when": "2024",
+      "what": "Third Prize – MAFA Public Data Utilization Startup Contest",
+      "where": "MAFA, Korea"
+    },
+    {
+      "kind": "award",
+      "when": "2023",
+      "what": "Excellence Prize – Data Safety Zone Competition",
+      "where": "MSIT, Korea"
+    },
+    {
+      "kind": "scholarship",
+      "when": "2024–25",
+      "what": "Academic Excellence Scholarship (Top ≤ 4%)",
+      "where": "SKKU"
+    },
+    {
+      "kind": "scholarship",
+      "when": "2024",
+      "what": "Challenge Semester TA Scholarship",
+      "where": "SKKU"
+    },
+    {
+      "kind": "scholarship",
+      "when": "2024",
+      "what": "University Innovation Scholarship",
+      "where": "SKKU"
+    }
+  ],
+  "news": [
+    {
+      "when": "2026.11",
+      "kind": "paper",
+      "text": "Two papers accepted to WSDM 2027."
+    },
+    {
+      "when": "2026.09",
+      "kind": "academic",
+      "text": "Started my MSc in Data Science at ETH Zürich."
+    },
+    {
+      "when": "2026.08",
+      "kind": "paper",
+      "text": "One paper accepted to CIKM 2026."
+    },
+    {
+      "when": "2026.02",
+      "kind": "academic",
+      "text": "Graduated summa cum laude from Sungkyunkwan University."
+    }
+  ]
+}
