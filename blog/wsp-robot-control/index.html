@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weight-Space Programming for Robot Control · Geonwoo Bang</title>
+  <meta name="description" content="No reward, only a goal sentence: over 100 generations GPT-6 Astra wrote a Go1 joystick controller as plain numbers, starting from all zeros.">
+  <meta name="author" content="Geonwoo Bang, Dongho Kim, Moohong Min">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Weight-Space Programming for Robot Control">
+  <meta property="og:description" content="No reward, only a goal sentence: an LLM writes a walking robot's controller as plain numbers.">
+  <meta property="article:published_time" content="2026-11-11">
+  <meta name="citation_title" content="Weight-Space Programming for Robot Control">
+  <meta name="citation_author" content="Bang, Geonwoo">
+  <meta name="citation_author" content="Kim, Dongho">
+  <meta name="citation_author" content="Min, Moohong">
+  <meta name="citation_publication_date" content="2026/11/11">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316181c'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Helvetica%2CArial%2Csans-serif' font-size='38' font-weight='600' fill='%23ffffff'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" href="joystick.css">
+  <script src="../../assets/site.js" defer></script>
+  <script src="demo.js" defer></script>
+  <script src="joystick.js" defer></script>
+</head>
+<body data-root="../../">
+<header class="wrap site-head">
+  <a class="site-name" href="../../">Geonwoo Bang</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="../../#publications">Publications</a>
+    <a href="../" aria-current="page">Blog</a>
+    <a href="../../content/cv.pdf">CV</a>
+  </nav>
+</header>
+
+<main>
+<article class="post">
+
+  <header class="post-head">
+    <h1 class="post-title">Weight-Space Programming for Robot Control</h1>
+    <p class="post-subtitle">No reward, only a goal sentence. An LLM wrote every weight of a walking robot’s controller, starting from all zeros.</p>
+    <p class="post-meta">Geonwoo Bang, Dongho Kim, Moohong Min · <time datetime="2026-11-11">November 11, 2026</time></p>
+  </header>
+
+  <p class="shout-out">This post builds directly on <a href="https://rikiyat.github.io/blog/weight-space-programming/"><i>Sparks of Weight-Space Programming</i></a> by Rikiya Takehi, Jayden Teoh, Alex Zhang and Omar Khattab. They showed that a frontier LLM can read and write the weights of a neural network directly, with no optimizer in between, and they gave the idea its name. What follows is that idea run for a long time on a walking robot, with the reward taken away. Thank you to all four of them for starting it.</p>
+
+  <h2 id="introduction">Introduction</h2>
+
+  <p>Almost every way we have of getting a robot controller starts with a number to push up. Reinforcement learning maximizes a reward. Newer methods built on language models lean on a score too. FunSearch and AlphaEvolve score every program the model writes (<a class="cite-ref" href="#ref-romera2024">Romera-Paredes et al., 2024</a>; <a class="cite-ref" href="#ref-novikov2025">Novikov et al., 2025</a>). Eureka and Language to Rewards have the model write a reward, and a learning algorithm then maximizes it (<a class="cite-ref" href="#ref-ma2024">Ma et al., 2024</a>; <a class="cite-ref" href="#ref-yu2023">Yu et al., 2023</a>). Someone always turns the goal into a number first.</p>
+
+  <p>We wanted to see what happens when nobody does. The model gets one sentence that says what the robot should do, and no reward at all. Can it still build a controller that works?</p>
+
+  <p>For the building we use Weight-Space Programming (<a class="cite-ref" href="#ref-takehi2026">Takehi et al., 2026</a>). A language model writes a neural network’s weights directly, as plain numbers, with no training. We put it in a long loop on a real robot task.</p>
+
+  <p>Here is what happened. Over 100 generations, GPT-6 Astra wrote the controller of a four-legged robot, starting from all zeros. We judge the robots on a hidden test: 64 fixed joystick episodes that Astra never sees. The score is velocity error, how far the robot’s speed is from the speed the joystick asks for, on average. Lower is better, and a robot that stands still scores 0.797&nbsp;m/s. Astra’s robot reached 0.250 at generation 51. From generation 72 on it stayed between 0.217 and 0.241.</p>
+
+  <h2 id="setting">The setup</h2>
+
+  <p>The robot is a Unitree Go1 in the joystick task of MuJoCo Playground (<a class="cite-ref" href="#ref-zakka2025">Zakka et al., 2025</a>), which runs on the MuJoCo simulator (<a class="cite-ref" href="#ref-todorov2012">Todorov et al., 2012</a>). A joystick tells the robot to walk forward or backward, step sideways or turn, and the command changes a few times in each 20-second episode. The controller is a neural network of the usual size for this task, with 194,956 weights. Every weight starts at zero, so the first robot just stands there.</p>
+
+  <p>Only Astra changes the weights. It writes each change as a line such as <code>W1[52,0] = 0.7</code>, which sets one weight to 0.7. A small program applies the lines and runs the simulation. There are no gradients and no random changes. There is no reward either.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th>Astra gets</th><th>Astra never gets</th></tr></thead>
+    <tbody>
+      <tr><td>One goal sentence: “the Go1 moves as the joystick commands: forward/backward velocity vx, sideways velocity vy and turning rate wz.”</td><td>A reward, or any score to maximize</td></tr>
+      <tr><td>The task’s code, with the reward parts cut out</td><td>Which measurement matters most</td></tr>
+      <tr><td>All the weights, and a way to edit them</td><td>Gradients, or any optimizer</td></tr>
+      <tr><td>A report card for each robot: speed errors, falls, gait</td><td>The hidden test</td></tr>
+      <tr><td>Ways to look inside: traces, films, its own notes</td><td>Advice on how to work</td></tr>
+    </tbody>
+  </table></div>
+
+  <p>Click the tabs below to see real excerpts of what Astra reads and writes in one generation.</p>
+
+  <div id="astra-sees"></div>
+
+  <h2 id="generation">How one generation works</h2>
+
+  <figure id="fig-generation">
+    <img src="fig_generation.svg" alt="One generation as a loop. Eight robots take an exam of 64 new episodes. Astra writes up to 24 trial robots and sees how they do. It keeps some robots and turns its best trials into children. Then the loop repeats.">
+    <figcaption><b>Figure 1.</b> One generation. The eight robots take an exam, Astra tries up to 24 edited robots, and then it decides who stays and who joins. <a href="fig_generation.pdf">PDF</a></figcaption>
+  </figure>
+
+  <p>Each generation starts with an exam. All eight robots drive 64 new joystick episodes, and Astra gets a report card for each one. Then Astra writes up to 24 trial robots, each a few edits away from a robot it already has, and sees how they do. At the end it keeps some robots and turns its best trials into children. The next generation starts with a fresh exam.</p>
+
+  <p>For each generation we report the robot with the lowest error on that generation’s exam. The hidden test plays no part in picking it.</p>
+
+  <h2 id="drive">Drive the robot yourself</h2>
+
+  <p>This is one of the best controllers from the end of the run, built in generation 90. Move the stick or press a button, and the robot moves at the speed it actually reached for that command, while the orange marker shows where a perfect follower would be.</p>
+
+  <div id="joystick-demo"></div>
+
+  <h2 id="progress">100 generations</h2>
+
+  <figure id="fig-progress">
+    <img src="fig_progress.svg" alt="Hidden-test velocity error by generation. The robot that topped the exam starts at 0.797 m/s at generation 0, falls to about 0.29 by generation 20, stays between 0.26 and 0.28 from generation 28 to 50, reaches 0.250 at generation 51 and stays between 0.217 and 0.241 from generation 72 on. The lowest single robot scores 0.214 at generation 89.">
+    <figcaption><b>Figure 2.</b> Velocity error on the hidden test, by generation. Lower is better, and 0.797&nbsp;m/s is standing still. The plot follows the robot that topped each exam and the best of the eight. <a href="fig_progress.pdf">PDF</a></figcaption>
+  </figure>
+
+  <p>Figure 2 shows the whole run. The top robot started at 0.797&nbsp;m/s, the score for standing still. It improved fast for about 20 generations, then stayed between 0.26 and 0.28 from generation 28 to 50. Generation 51 broke out at 0.250. From generation 72 on, every top robot scored between 0.217 and 0.241, and the best single robot of the run scored 0.214, in generation 89.</p>
+
+  <h2 id="figured-out">Three things Astra figured out</h2>
+
+  <h3 id="trot">A trot from a clock</h3>
+
+  <p>Some of the controller’s inputs are clocks, sine waves that tick at fixed rates. Astra’s very first edit, <code>W1[52,0] = 0.7</code>, wired the 2&nbsp;Hz clock into the network. Its first reply opened with a plan:</p>
+
+  <blockquote>
+    <p>I’ll test command-dependent diagonal trots at 2&nbsp;Hz and 3&nbsp;Hz, with three stride amplitudes and shared balance feedback.</p>
+    <footer>Astra’s first reply, generation 0</footer>
+  </blockquote>
+
+  <p>In a trot, diagonal legs swing together. Astra’s 45 edit lines did that, and they made the stride grow with the joystick command. None of these first trots stayed up. Still, a gait was there in the numbers from the very first reply.</p>
+
+  <h3 id="upward">The body’s upward speed</h3>
+
+  <p>The robot senses its vertical speed in its body’s own frame, which tilts with the body. When the body leans, forward motion leaks into that reading. In generation 25 Astra caught this in its notes:</p>
+
+  <blockquote>
+    <p>input2 is TRUNK-FRAME local vz, NOT world-vertical velocity. Tilt mixes horizontal motion into it.</p>
+    <footer>Astra’s notebook, end of generation 25</footer>
+  </blockquote>
+
+  <p>The true upward speed takes three multiplications, the body’s velocity against the direction of gravity, and a network unit cannot multiply. In generation 27 Astra wired twelve units, four per multiplication, whose sum comes out close to the answer. <a class="cite-ref" href="#ref-lin2017">Lin, Tegmark and Rolnick (2017)</a> use the same four-unit trick. We fed the circuit made-up inputs. It responds when the body rises, and it gives zero for a body that leans 17.5° while moving level, the case that fooled the sensor. Nothing in the goal mentions any of this. Of the 120 robots that joined from generation 28 to 52, 119 carried the circuit.</p>
+
+  <h3 id="falls">Its own rule about falling</h3>
+
+  <p>The goal sentence never mentions falling. Astra made a rule anyway: a robot that falls even once on the exam has failed. From generation 48 on, 217 of the 222 robots that fell on an exam were gone by the next generation. Its notes read like a log:</p>
+
+  <blockquote>
+    <p>Retired VK66 and FA85 after falls</p>
+    <footer>Astra’s notebook, generation 50</footer>
+  </blockquote>
+
+  <p>The rule was strict. The best single robot of the run, the 0.214 robot from generation 89, fell three times on its exam, and Astra dropped it. Astra could not have known what it lost, since it never sees the hidden test.</p>
+
+  <h2 id="bodies">Other bodies</h2>
+
+  <p>We ran the same loop on three bodies from Gymnasium (<a class="cite-ref" href="#ref-towers2024">Towers et al., 2024</a>): the four-legged Ant, the one-legged Hopper and the two-legged Walker2d. Here the goal sentence was to walk forward as far as possible without falling. That sentence names the number to beat, so these runs are easier than the Go1’s. Every weight again started at zero. Within the time limit, the best Ant walked 57.1&nbsp;m, the best Hopper 9.7&nbsp;m and the best Walker2d 7.8&nbsp;m.</p>
+
+  <figure id="fig-bodies">
+    <img src="fig_bodies.svg" alt="Best forward distance per generation for Ant, Hopper and Walker2d, each starting from all-zero weights at about zero metres. The best Ant reaches 57.1 m, the best Hopper 9.7 m and the best Walker2d 7.8 m.">
+    <figcaption><b>Figure 3.</b> Best distance walked in each generation by three other bodies, all starting from zero weights. <a href="fig_bodies.pdf">PDF</a></figcaption>
+  </figure>
+
+  <figure id="fig-bodies-strip">
+    <img src="fig_bodies_strip.png" alt="Rendered frames of the best Ant, Hopper and Walker2d robots moving forward.">
+    <figcaption><b>Figure 4.</b> Frames from the best Ant, Hopper and Walker2d. <a href="fig_bodies_strip.pdf">PDF</a></figcaption>
+  </figure>
+
+  <h2 id="related">Related work</h2>
+
+  <p>FunSearch (<a class="cite-ref" href="#ref-romera2024">Romera-Paredes et al., 2024</a>) and AlphaEvolve (<a class="cite-ref" href="#ref-novikov2025">Novikov et al., 2025</a>) evolve programs with an LLM writing the changes. Evolution through Large Models (<a class="cite-ref" href="#ref-lehman2022">Lehman et al., 2022</a>) uses an LLM as the mutation step, and OPRO (<a class="cite-ref" href="#ref-yang2024">Yang et al., 2024</a>) has a model propose answers from a list of scored attempts. All of them give the loop a score. Eureka (<a class="cite-ref" href="#ref-ma2024">Ma et al., 2024</a>) and Language to Rewards (<a class="cite-ref" href="#ref-yu2023">Yu et al., 2023</a>) have the LLM write a reward that another method then maximizes. A separate line of work trains networks that make or read weights: HyperNetworks (<a class="cite-ref" href="#ref-ha2017">Ha et al., 2017</a>), G.pt (<a class="cite-ref" href="#ref-peebles2022">Peebles et al., 2022</a>) and neural functionals (<a class="cite-ref" href="#ref-zhou2023">Zhou et al., 2023</a>). We train nothing and score nothing. A general-purpose LLM writes the weights itself, as <a class="cite-ref" href="#ref-takehi2026">Takehi et al. (2026)</a> describe.</p>
+
+  <h2 id="next">Still running</h2>
+
+  <p>This is one run with one seed. We are now running more seeds of the Go1 setup, and trying other robots with only a goal sentence. We are also letting runs go past 100 generations, and we will update this post as they finish.</p>
+
+  <section class="post-end">
+    <h2 id="references">References</h2>
+    <ul class="refs">
+      <li id="ref-ha2017">David Ha, Andrew Dai and Quoc V. Le. 2017. <a href="https://arxiv.org/abs/1609.09106">HyperNetworks</a>. <i>ICLR</i>.</li>
+      <li id="ref-lehman2022">Joel Lehman et al. 2022. <a href="https://arxiv.org/abs/2206.08896">Evolution through Large Models</a>. <span class="nowrap">arXiv:2206.08896</span>.</li>
+      <li id="ref-lin2017">Henry W. Lin, Max Tegmark and David Rolnick. 2017. <a href="https://arxiv.org/abs/1608.08225">Why does deep and cheap learning work so well?</a> <i>Journal of Statistical Physics</i> 168, <span class="nowrap">1223–1247</span>.</li>
+      <li id="ref-ma2024">Yecheng Jason Ma et al. 2024. <a href="https://arxiv.org/abs/2310.12931">Eureka: Human-Level Reward Design via Coding Large Language Models</a>. <i>ICLR</i>.</li>
+      <li id="ref-novikov2025">Alexander Novikov et al. 2025. <a href="https://arxiv.org/abs/2506.13131">AlphaEvolve: A coding agent for scientific and algorithmic discovery</a>. <span class="nowrap">arXiv:2506.13131</span>.</li>
+      <li id="ref-peebles2022">William Peebles, Ilija Radosavovic, Tim Brooks, Alexei A. Efros and Jitendra Malik. 2022. <a href="https://arxiv.org/abs/2209.12892">Learning to Learn with Generative Models of Neural Network Checkpoints</a>. <span class="nowrap">arXiv:2209.12892</span>.</li>
+      <li id="ref-romera2024">Bernardino Romera-Paredes et al. 2024. <a href="https://www.nature.com/articles/s41586-023-06924-6">Mathematical discoveries from program search with large language models</a>. <i>Nature</i> 625, <span class="nowrap">468–475</span>.</li>
+      <li id="ref-takehi2026">Rikiya Takehi, Jayden Teoh, Alex Zhang and Omar Khattab. 2026. <a href="https://rikiyat.github.io/blog/weight-space-programming/">Sparks of Weight-Space Programming: LLMs can natively read &amp; write neural network weights</a>. Blog post, November 2.</li>
+      <li id="ref-todorov2012">Emanuel Todorov, Tom Erez and Yuval Tassa. 2012. <a href="https://doi.org/10.1109/IROS.2012.6386109">MuJoCo: A physics engine for model-based control</a>. <i>IROS</i>.</li>
+      <li id="ref-towers2024">Mark Towers et al. 2024. <a href="https://arxiv.org/abs/2407.17032">Gymnasium: A Standard Interface for Reinforcement Learning Environments</a>. <span class="nowrap">arXiv:2407.17032</span>.</li>
+      <li id="ref-yang2024">Chengrun Yang et al. 2024. <a href="https://arxiv.org/abs/2309.03409">Large Language Models as Optimizers</a>. <i>ICLR</i>.</li>
+      <li id="ref-yu2023">Wenhao Yu et al. 2023. <a href="https://arxiv.org/abs/2306.08647">Language to Rewards for Robotic Skill Synthesis</a>. <i>CoRL</i>.</li>
+      <li id="ref-zakka2025">Kevin Zakka et al. 2025. <a href="https://arxiv.org/abs/2502.08844">MuJoCo Playground</a>. <span class="nowrap">arXiv:2502.08844</span>.</li>
+      <li id="ref-zhou2023">Allan Zhou et al. 2023. <a href="https://arxiv.org/abs/2302.14040">Permutation Equivariant Neural Functionals</a>. <i>NeurIPS</i>.</li>
+    </ul>
+  </section>
+
+</article>
+
+<nav class="wrap post-nav" aria-label="More posts">
+  <a href="../"><span class="dir">Blog</span>All posts</a>
+  <a class="next" href="../../"><span class="dir">Home</span>Geonwoo Bang</a>
+</nav>
+</main>
+
+<footer class="wrap site-foot">
+  <p>© 2026 Geonwoo Bang</p>
+</footer>
+</body>
+</html>

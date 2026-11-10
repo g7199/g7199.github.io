@@ -1,4 +1,4 @@
-// ✎ The edit page.
+// The edit page (admin.html). It edits content/data.json, which the home page and the blog index read.
 //
 // The site is static (GitHub Pages), so edits are saved by committing content/data.json and
 // uploaded photos straight to your GitHub repo through the GitHub API. Only someone holding a
@@ -16,7 +16,7 @@
   const DATA_PATH = "content/data.json";
   const IMG_DIR = "content/images";
 
-  const S = { mode: null, cfg: null, token: null, data: null, sha: null, dirty: false, tab: "publications", edit: null, blobs: {}, preview: false };
+  const S = { mode: null, cfg: null, token: null, data: null, sha: null, dirty: false, tab: "publications", edit: null, blobs: {} };
 
   /* ---------- status ---------- */
   const status = (msg, kind = "") => { const el = $("#status"); el.innerHTML = msg; el.className = `status ${kind}`; };
@@ -162,9 +162,9 @@
           You'll do this once; after that, just your password.</p>
         <form id="setupForm">
           <div class="row">
-            <label class="field"><span>GitHub user</span><input type="text" id="g-owner" value="${esc(g.owner)}" required /></label>
-            <label class="field"><span>Repository</span><input type="text" id="g-repo" value="${esc(g.repo)}" required /></label>
-            <label class="field"><span>Branch</span><input type="text" id="g-branch" value="${esc(g.branch)}" required /></label>
+            <label class="field"><span>GitHub user</span><input type="text" id="g-owner" value="${esc(g.owner)}" autocomplete="username" required /></label>
+            <label class="field"><span>Repository</span><input type="text" id="g-repo" value="${esc(g.repo)}" autocomplete="off" required /></label>
+            <label class="field"><span>Branch</span><input type="text" id="g-branch" value="${esc(g.branch)}" autocomplete="off" required /></label>
           </div>
           <label class="field"><span>GitHub token</span><input type="password" id="g-token" autocomplete="off" required placeholder="github_pat_…" /></label>
           <details>
@@ -241,68 +241,60 @@
     setDirty(false);
     if (!S.data.experience && (S.data.professional || S.data.timeline)) S.data.experience = (S.data.professional || S.data.timeline).map((x) => ({ kind: "professional", ...x }));
     delete S.data.timeline; delete S.data.professional;
-    S.data.publications ||= []; S.data.projects ||= []; S.data.skills ||= []; S.data.education ||= []; S.data.experience ||= [];
+    S.data.publications ||= []; S.data.projects ||= []; S.data.posts ||= []; S.data.education ||= []; S.data.experience ||= [];
     S.data.awards ||= []; S.data.news ||= []; S.data.contact ||= {}; S.data.profile ||= {};
     renderTabs();
     renderPanel();
   }
 
-  const LINKS_PUB = [["doi", "DOI"], ["pdf", "PDF"], ["arxiv", "arXiv"], ["code", "Code"], ["project", "Project page"], ["video", "Video"], ["slides", "Slides"], ["poster", "Poster"]];
-  const LINKS_PROJ = [["github", "GitHub"], ["demo", "Demo"], ["paper", "Paper"], ["video", "Video"], ["slides", "Slides"]];
+  // Only fields the site shows are offered here. Keys the site no longer uses (projects, skills,
+  // a paper's "selected" flag, BibTeX, ...) stay in data.json untouched.
+  const LINKS_PUB = [["pdf", "PDF"], ["arxiv", "arXiv"], ["doi", "DOI"], ["code", "Code"], ["project", "Project page"], ["video", "Video"], ["slides", "Slides"], ["poster", "Poster"]];
   const SECTIONS = [
-    { key: "profile", label: "Profile", kind: "object", hint: "The label on the side of the box, and the About sheet.", fields: [
-      { row: [{ k: "name", label: "Full name" }, { k: "firstName", label: "First name", help: "Used in the page title" }] },
-      { row: [{ k: "role", label: "Role" }, { k: "affiliation", label: "Affiliation" }] },
-      { k: "oneLiner", label: "One-liner" },
+    { key: "profile", label: "Profile", kind: "object", hint: "The top of the home page: your name, one line under it, and the bio.", fields: [
+      { k: "name", label: "Full name" },
+      { k: "oneLiner", label: "One line under your name" },
       { k: "bio", label: "Bio", type: "textarea" },
-      { k: "interests", label: "Interests", type: "tags", help: "Comma-separated" },
-      { k: "$me", label: "Your name in author lists", help: "Shown in bold on your papers" },
+      { k: "$me", label: "Your name in author lists", help: "Set in bold on your papers" },
     ] },
-    { key: "publications", label: "Papers", kind: "list", rich: true, links: LINKS_PUB, hint: "The kimbap. Open a paper to edit its detail page — text, photos, links.",
-      title: (p) => p.title || "Untitled paper", meta: (p) => [p.venue, p.year, p.selected ? "✦ selected" : ""].filter(Boolean).join(" · "),
+    { key: "news", label: "News", kind: "list", hint: "Newest first. Every item is shown.", title: (n) => n.text || "New item", meta: (n) => n.when || "",
+      blank: () => ({ when: "", kind: "paper", text: "" }),
+      fields: [{ k: "when", label: "When", help: "e.g. 2026.03" }, { k: "text", label: "News", type: "textarea", small: true }] },
+    { key: "publications", label: "Papers", kind: "list", rich: true, links: LINKS_PUB, hint: "Grouped by year on the site, newest year first; within a year, in this order. A reader can open the abstract and the figure under each paper.",
+      title: (p) => p.title || "Untitled paper", meta: (p) => [p.venue, p.status === "accepted" ? "accepted" : ""].filter(Boolean).join(" · "),
       blank: () => ({ id: "", title: "", authors: S.data.me ? [S.data.me] : [], venue: "", year: new Date().getFullYear(), type: "conference", badge: "", selected: false, links: {}, bibtex: "", cover: "", images: [], body: "" }),
       fields: [
-        { row: [{ k: "title", label: "Title" }, { k: "short", label: "Short name (optional)", help: "Shown at the top of the detail page, e.g. EVOL" }] },
+        { k: "title", label: "Title" },
         { k: "authors", label: "Authors", type: "tags", help: "Comma-separated, in order" },
-        { row3: [{ k: "venue", label: "Venue", help: "e.g. CVPR 2026" }, { k: "year", label: "Year", type: "number" }, { k: "type", label: "Type", type: "select", options: ["conference", "journal", "preprint", "workshop"] }] },
-        { row: [{ k: "badge", label: "Badge", help: "e.g. Oral, Best Paper" }, { k: "status", label: "Status", type: "select", options: ["published", "accepted"] }] },
-        { k: "selected", label: "Selected paper (✦)", type: "check" },
+        { row: [{ k: "venue", label: "Venue", help: "e.g. CVPR 2026" }, { k: "year", label: "Year", type: "number" }] },
+        { row: [{ k: "status", label: "Status", type: "select", options: ["published", "accepted"] }, { k: "badge", label: "Badge", help: "e.g. Oral, Best Paper" }] },
         { k: "links", type: "links" },
-        { k: "bibtex", label: "BibTeX", type: "textarea", help: "Optional — one is generated if empty" },
-        { k: "id", label: "Page address", type: "id" },
       ] },
-    { key: "projects", label: "Projects", kind: "list", rich: true, links: LINKS_PROJ, hint: "The sausage stir-fry. Open a project to edit its detail page.",
-      title: (p) => p.title || "Untitled project", meta: (p) => [(p.tags || []).join(", "), p.featured ? "featured" : ""].filter(Boolean).join(" · "),
-      blank: () => ({ id: "", title: "", role: "", year: "", desc: "", tags: [], featured: false, links: {}, cover: "", images: [], body: "" }),
+    { key: "posts", label: "Blog", kind: "list", hint: "The list on the home page and on blog/. A post itself is a folder under blog/ in the repo: add the folder first, then list it here.",
+      title: (p) => p.title || "Untitled post", meta: (p) => [p.date, p.url].filter(Boolean).join(" · "),
+      blank: () => ({ title: "", date: new Date().toISOString().slice(0, 10), url: "blog/", summary: "" }),
       fields: [
         { k: "title", label: "Title" },
-        { row: [{ k: "role", label: "Your role / prize", help: "e.g. Team Leader · Gold Prize" }, { k: "year", label: "Year", help: "e.g. 2024–2025" }] },
-        { k: "desc", label: "One-line description", type: "textarea", small: true },
-        { row: [{ k: "tags", label: "Tags", type: "tags", help: "Comma-separated" }, { k: "featured", label: "Featured", type: "check" }] },
-        { k: "links", type: "links" },
-        { k: "id", label: "Page address", type: "id" },
+        { row: [{ k: "date", label: "Date", help: "YYYY-MM-DD" }, { k: "url", label: "Address", help: "e.g. blog/my-post/" }] },
+        { k: "summary", label: "One-line summary", type: "textarea", small: true },
       ] },
-    { key: "skills", label: "Skills", kind: "list", hint: "The tamagoyaki. Shown as small chips, grouped by the Group you type.", title: (s) => s.name || "New skill", meta: (s) => s.group || "",
-      blank: () => ({ name: "", group: "" }), fields: [{ row: [{ k: "name", label: "Skill" }, { k: "group", label: "Group", help: "e.g. AI & ML, Data & Tools" }] }] },
-    { key: "education", label: "Education", kind: "list", hint: "The tonkatsu. Newest first.", title: (t) => t.what || "New degree", meta: (t) => [t.when, t.where].filter(Boolean).join(" · "),
+    { key: "education", label: "Education", kind: "list", hint: "Newest first.", title: (t) => t.what || "New degree", meta: (t) => [t.when, t.where].filter(Boolean).join(" · "),
       blank: () => ({ when: "", what: "", where: "", detail: "" }),
-      fields: [{ row3: [{ k: "when", label: "When", help: "e.g. 2023 – present" }, { k: "what", label: "Degree", help: "e.g. Ph.D. in Computer Science" }, { k: "where", label: "School" }] },
-        { k: "detail", label: "Detail (optional)", type: "textarea", small: true, help: "e.g. Advisor, thesis, GPA" }] },
-    { key: "experience", label: "Experience", kind: "list", hint: "The grilled salmon. Grouped into Research / Professional / Teaching on the site. Newest first.",
+      fields: [{ row3: [{ k: "when", label: "When", help: "e.g. 2023 – Present" }, { k: "what", label: "Degree", help: "e.g. Ph.D. in Computer Science" }, { k: "where", label: "School" }] },
+        { k: "detail", label: "Detail (optional)", type: "textarea", small: true, help: "One line per point, e.g. advisor, thesis, GPA" }] },
+    { key: "experience", label: "Experience", kind: "list", hint: "Grouped into Research, Teaching and Service on the site (Professional too, if you add any). Newest first.",
       title: (t) => t.what || "New position", meta: (t) => [t.kind, t.when, t.where].filter(Boolean).join(" · "),
       blank: () => ({ kind: "research", when: "", what: "", where: "", detail: "" }),
-      fields: [{ row: [{ k: "kind", label: "Type", type: "select", options: ["research", "professional", "teaching"] }, { k: "when", label: "When", help: "e.g. Mar 2025 – Present" }] },
+      fields: [{ row: [{ k: "kind", label: "Type", type: "select", options: ["research", "teaching", "service", "professional"] }, { k: "when", label: "When", help: "e.g. Mar 2025 – Present" }] },
         { row: [{ k: "what", label: "Role / course" }, { k: "where", label: "Organization" }] },
-        { k: "detail", label: "Detail (optional)", type: "textarea", small: true, help: "What you worked on — one line per point" }] },
-    { key: "awards", label: "Awards", kind: "list", hint: "The dessert. Grouped into Awards / Scholarships on the site. Newest first.", title: (t) => t.what || "New award", meta: (t) => [t.kind, t.when, t.where].filter(Boolean).join(" · "),
+        { k: "detail", label: "Detail (optional)", type: "textarea", small: true, help: "What you worked on, one line per point" }] },
+    { key: "awards", label: "Awards", kind: "list", hint: "Awards first, then scholarships. Newest first.", title: (t) => t.what || "New award", meta: (t) => [t.kind, t.when, t.where].filter(Boolean).join(" · "),
       blank: () => ({ kind: "award", when: "", what: "", where: "" }),
-      fields: [{ row: [{ k: "kind", label: "Type", type: "select", options: ["award", "scholarship"] }, { k: "when", label: "When" }] }, { row: [{ k: "what", label: "Award" }, { k: "where", label: "From" }] }] },
-    { key: "news", label: "News", kind: "list", hint: "Printed on the receipt (the newest 5; the rest show when it's opened). Newest first.", title: (n) => n.text || "New item", meta: (n) => [n.kind, n.when].filter(Boolean).join(" · "),
-      blank: () => ({ when: "", kind: "paper", text: "" }),
-      fields: [{ row: [{ k: "when", label: "When", help: "e.g. 2026.03" }, { k: "kind", label: "Type", type: "select", options: ["paper", "project", "academic", "award", "career"] }] }, { k: "text", label: "News", type: "textarea", small: true }] },
-    { key: "contact", label: "Contact", kind: "object", hint: "The chopsticks.", fields: [
-      { k: "email", label: "Email" }, { k: "github", label: "GitHub URL" }, { k: "scholar", label: "Google Scholar URL" },
-      { k: "linkedin", label: "LinkedIn URL" }, { k: "cv", label: "CV (PDF)", type: "cv" },
+      fields: [{ row: [{ k: "kind", label: "Type", type: "select", options: ["award", "scholarship"] }, { k: "when", label: "When" }] }, { row: [{ k: "what", label: "Award" }, { k: "where", label: "From", help: "Left out on the site if the award's name already says it" }] }] },
+    { key: "contact", label: "Contact", kind: "object", hint: "Shown under your bio. Empty fields are left out.", fields: [
+      { k: "email", label: "Email" }, { k: "linkedin", label: "LinkedIn URL" },
+      { k: "github", label: "GitHub URL" }, { k: "scholar", label: "Google Scholar URL" },
+      { k: "cv", label: "CV (PDF)", type: "cv" },
     ] },
   ];
   const sec = () => SECTIONS.find((s) => s.key === S.tab);
@@ -335,9 +327,7 @@
         return `<label class="field"><span>${esc(f.label)}</span>
           <div style="display:flex;gap:8px"><input type="text" data-k="cv" value="${esc(v || "")}" placeholder="content/cv.pdf or https://…" />
           <button type="button" class="btn small" data-act="cv-upload" style="white-space:nowrap">Upload PDF</button></div>
-          <small>Shown as “Download CV (PDF)” next to the subtitle at the top of the site.${v ? ` <a href="${esc(v)}" target="_blank" rel="noopener">Open current CV</a>` : ""}</small></label>`;
-      case "id":
-        return `<label class="field"><span>${esc(f.label)}</span><input type="text" data-k="id" data-t="id" value="${esc(v || "")}" placeholder="made from the title" /><small>Detail page: <code>#${sectionDef.key === "publications" ? "papers" : "projects"}/${esc(v || slug(obj.title) || "…")}</code></small></label>`;
+          <small>Linked as “CV (PDF)” under your bio. The menu's CV link always opens content/cv.pdf, which Upload PDF replaces.${v ? ` <a href="${esc(v)}" target="_blank" rel="noopener">Open current CV</a>` : ""}</small></label>`;
       default:
         return `<label class="field"><span>${esc(f.label)}</span><input type="text" data-k="${f.k}" value="${esc(v ?? "")}" />${help}</label>`;
     }
@@ -347,7 +337,6 @@
     let v = t === "check" ? el.checked : el.value;
     if (t === "tags") v = el.value.split(",").map((x) => x.trim()).filter(Boolean);
     if (t === "number") v = el.value === "" ? "" : Number(el.value);
-    if (t === "id") v = slug(el.value);
     if (k === "$me") S.data.me = v;
     else if (k.startsWith("links.")) { target.links ||= {}; const lk = k.slice(6); if (v) target.links[lk] = v; else delete target.links[lk]; }
     else target[k] = v;
@@ -356,7 +345,6 @@
   /* ---------- panels ---------- */
   function renderPanel() {
     const s = sec();
-    S.preview = false;
     if (s.kind === "object") {
       const obj = S.data[s.key];
       $("#panel").innerHTML = `<h2>${s.label}</h2><p class="hint">${s.hint}</p><form data-target="object" onsubmit="return false">${s.fields.map((f) => fieldHTML(f, obj, s)).join("")}</form>`;
@@ -394,27 +382,16 @@
       ${s.rich ? richHTML(it) : ""}`;
   }
 
-  // photos + write-up for papers / projects
+  // a paper's figure and abstract: the site shows the cover image and the text under "## Abstract"
   function richHTML(it) {
     return `
-      <fieldset><legend>Photos</legend>
+      <fieldset><legend>Figure</legend>
         <div class="imgs" id="imgs">${imagesHTML(it)}</div>
-        <small style="color:var(--soft);display:block;margin-bottom:10px">${S.mode === "github" ? "Photos are resized and saved to your repo right away. Drop files here or click +." : "Connect GitHub to upload photos. In local mode you can type image paths in the text."}</small>
+        <small style="color:var(--soft);display:block;margin-bottom:10px">The cover is shown above the abstract when a reader opens it. ${S.mode === "github" ? "Photos are resized and saved to your repo right away. Drop files here or click +." : "Connect GitHub to upload photos."}</small>
       </fieldset>
-      <fieldset><legend>Write-up (detail page)</legend>
-        <div class="md-tools">
-          <button type="button" class="tab" data-md="write" aria-pressed="${!S.preview}">Write</button>
-          <button type="button" class="tab" data-md="preview" aria-pressed="${S.preview}">Preview</button>
-          <span class="sep"></span>
-          <button type="button" data-md="h">Heading</button>
-          <button type="button" data-md="b"><b>B</b></button>
-          <button type="button" data-md="i"><i>I</i></button>
-          <button type="button" data-md="ul">• List</button>
-          <button type="button" data-md="link">Link</button>
-          <button type="button" data-md="img">Photo</button>
-        </div>
-        ${S.preview ? `<div class="md-preview">${md(it.body || "") || '<p style="color:var(--soft)">Nothing written yet.</p>'}</div>`
-          : `<textarea class="md-area" data-k="body" placeholder="## What it is&#10;Write the story of this ${S.tab === "publications" ? "paper" : "project"}…&#10;&#10;- bullet points&#10;- **bold**, *italic*, [links](https://…)&#10;&#10;Photos you upload can be placed anywhere with the Photo button.">${esc(it.body || "")}</textarea>`}
+      <fieldset><legend>Abstract</legend>
+        <textarea class="md-area" data-k="body" placeholder="## Abstract&#10;Paste the abstract here. A blank line starts a new paragraph.">${esc(it.body || "")}</textarea>
+        <small style="color:var(--soft);display:block;margin-top:6px">The site shows the text under the “## Abstract” heading (all of it if there is no heading) as plain paragraphs.</small>
       </fieldset>`;
   }
   function imagesHTML(it) {
@@ -424,43 +401,10 @@
         ${p === it.cover ? `<span class="badge">Cover</span>` : ""}
         <img src="${esc(src(p))}" alt="" />
         <div class="row">
-          <button type="button" class="btn small" data-img="insert" data-k="${k}">Insert</button>
           ${p === it.cover ? `<button type="button" class="btn small" data-img="uncover" data-k="${k}">Uncover</button>` : `<button type="button" class="btn small" data-img="cover" data-k="${k}">Cover</button>`}
           <button type="button" class="btn small danger" data-img="remove" data-k="${k}">✕</button>
         </div>
       </div>`).join("") + `<div class="img up" data-img="add" role="button" tabindex="0">+ Add photos</div>`;
-  }
-
-  /* ---------- tiny markdown preview (same rules as the site) ---------- */
-  const safeUrl = (u) => !/^\s*(javascript|data|vbscript):/i.test(u);
-  const inline = (t) => esc(t)
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/!\[([^\]]*)\]\(([^)\s]+)\)/g, (m, a, u) => (safeUrl(u) ? `<img src="${esc(src(u.replace(/&amp;/g, "&")))}" alt="${a}">` : m))
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (m, t2, u) => (safeUrl(u) ? `<a href="${u}" target="_blank" rel="noopener">${t2}</a>` : m))
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/(^|[^*])\*([^*]+)\*/g, "$1<em>$2</em>");
-  function md(srcText) {
-    let html = "", para = [], list = null;
-    const flush = () => {
-      if (para.length) { html += `<p>${inline(para.join(" "))}</p>`; para = []; }
-      if (list) { html += `<${list.tag}>${list.items.map((i) => `<li>${inline(i)}</li>`).join("")}</${list.tag}>`; list = null; }
-    };
-    String(srcText).split("\n").forEach((line) => {
-      let m;
-      if (!line.trim()) return flush();
-      if ((m = line.match(/^(#{1,3})\s+(.*)/))) { flush(); html += `<h4>${inline(m[2])}</h4>`; return; }
-      if ((m = line.match(/^\s*[-*]\s+(.*)/)) || (m = line.match(/^\s*\d+\.\s+(.*)/))) {
-        const tag = /^\s*\d+\./.test(line) ? "ol" : "ul";
-        if (para.length || (list && list.tag !== tag)) flush();
-        list ||= { tag, items: [] };
-        list.items.push(m[1]);
-        return;
-      }
-      if (list) flush();
-      para.push(line.trim());
-    });
-    flush();
-    return html;
   }
 
   /* ---------- photos ---------- */
@@ -502,23 +446,6 @@
   }
   const currentItem = () => (S.edit ? S.data[S.edit.section][S.edit.i] : null);
 
-  /* ---------- markdown toolbar ---------- */
-  function wrapSel(before, after = "", placeholder = "") {
-    const ta = $(".md-area");
-    if (!ta) return;
-    const { selectionStart: a, selectionEnd: b, value } = ta;
-    const sel = value.slice(a, b) || placeholder;
-    ta.value = value.slice(0, a) + before + sel + after + value.slice(b);
-    ta.focus();
-    ta.selectionStart = a + before.length;
-    ta.selectionEnd = a + before.length + sel.length;
-    ta.dispatchEvent(new Event("input", { bubbles: true }));
-  }
-  function insertImage(path) {
-    if (S.preview) { S.preview = false; renderItem(); }
-    wrapSel(`\n![](${path})\n`);
-  }
-
   /* ---------- events ---------- */
   $("#tabs").addEventListener("click", (e) => {
     const b = e.target.closest("[data-tab]");
@@ -536,11 +463,7 @@
     const target = S.edit ? currentItem() : S.data[s.key];
     readInput(el, target);
     setDirty();
-    if (el.dataset.k === "title" && S.edit) {
-      $(".panel-head h2").textContent = s.title(target);
-      const idInput = $('[data-k="id"]');
-      if (idInput && !idInput.value) idInput.nextElementSibling.innerHTML = `Detail page: <code>#${s.key === "publications" ? "papers" : "projects"}/${esc(slug(target.title) || "…")}</code>`;
-    }
+    if (el.dataset.k === "title" && S.edit) $(".panel-head h2").textContent = s.title(target);
   });
 
   $("#panel").addEventListener("click", (e) => {
@@ -560,38 +483,16 @@
           list.splice(i, 1); S.edit = null; setDirty(); renderTabs(); return renderPanel();
       }
     }
-    const m = e.target.closest("[data-md]");
-    if (m) {
-      const k = m.dataset.md;
-      if (k === "write" || k === "preview") { S.preview = k === "preview"; return renderItem(); }
-      if (S.preview) { S.preview = false; renderItem(); }
-      if (k === "h") return wrapSel("\n## ", "\n", "Heading");
-      if (k === "b") return wrapSel("**", "**", "bold");
-      if (k === "i") return wrapSel("*", "*", "italic");
-      if (k === "ul") return wrapSel("\n- ", "", "item");
-      if (k === "link") { const u = prompt("Link URL", "https://"); if (u) wrapSel("[", `](${u})`, "link text"); return; }
-      if (k === "img") {
-        const it = currentItem();
-        if (it && it.images && it.images.length) {
-          const pickN = prompt(`Which photo? 1–${it.images.length} (or leave empty to upload a new one)`, String(it.images.length));
-          if (pickN && it.images[+pickN - 1]) return insertImage(it.images[+pickN - 1]);
-        }
-        S.pendingInsert = true;
-        return $("#filePicker").click();
-      }
-    }
     const im = e.target.closest("[data-img]");
     if (im) {
       const it = currentItem(), k = +im.dataset.k;
       switch (im.dataset.img) {
         case "add": return $("#filePicker").click();
-        case "insert": return insertImage(it.images[k]);
         case "cover": it.cover = it.images[k]; break;
         case "uncover": it.cover = ""; break;
         case "remove":
           if (!confirm("Remove this photo from the page? (The file stays in your repo.)")) return;
           if (it.cover === it.images[k]) it.cover = "";
-          it.body = (it.body || "").split(`![](${it.images[k]})`).join("");
           it.images.splice(k, 1);
           break;
       }
@@ -613,16 +514,12 @@
   $("#filePicker").addEventListener("change", async (e) => {
     const files = [...e.target.files];
     e.target.value = "";
-    const before = (currentItem()?.images || []).length;
     await addPhotos(files);
-    const it = currentItem();
-    if (S.pendingInsert && it && it.images.length > before) insertImage(it.images[it.images.length - 1]);
-    S.pendingInsert = false;
   });
 
   $("#pdfPicker").addEventListener("change", (e) => { const f = e.target.files[0]; e.target.value = ""; uploadCV(f); });
 
-  // fill in ids for detail pages before saving
+  // every paper keeps a unique id (older pages linked to them; the editor still fills them in)
   function tidy() {
     ["publications", "projects"].forEach((k) => {
       const seen = new Set();

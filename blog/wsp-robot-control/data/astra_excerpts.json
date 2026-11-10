@@ -1,0 +1,77 @@
+{
+ "run": "generation 27 of the run",
+ "tabs": [
+  {
+   "key": "goal",
+   "label": "Goal",
+   "file": "gen027_t0.prompt.txt",
+   "at": "lines 1–4",
+   "wrap": true,
+   "hl": [
+    0
+   ],
+   "text": "GOAL: the Go1 moves as the joystick commands: forward/backward velocity vx, sideways velocity vy and turning rate wz.\n\nYou build the brains of a population of 8 simulated Unitree Go1 robots (MuJoCo Playground task Go1JoystickFlatTerrain) by writing numbers into their weights. Each\ngeneration you decide which robots remain and which new robots are built, and how.",
+   "caption": "The first line of every conversation, and the only statement of what to aim for. No reward is ever shown.",
+   "src": "Generation 27, the first message Astra gets, lines 1–4"
+  },
+  {
+   "key": "env",
+   "label": "Environment",
+   "file": "gen027_t0.prompt.txt",
+   "at": "lines 467–487",
+   "wrap": false,
+   "hl": [],
+   "text": "    def _get_termination(self, data: mjx.Data) -> jax.Array:\n        fall_termination = self.get_upvector(data)[-1] < 0.0\n        return fall_termination\n\n    def _get_obs(self, data: mjx.Data, info: dict[str, Any]) -> Dict[str, jax.Array]:\n        gyro = self.get_gyro(data)\n        info['rng'], noise_rng = jax.random.split(info['rng'])\n        noisy_gyro = gyro + (2 * jax.random.uniform(noise_rng, shape=gyro.shape) - 1) * self._config.noise_config.level * self._config.noise_config.scales.gyro\n        gravity = self.get_gravity(data)\n        info['rng'], noise_rng = jax.random.split(info['rng'])\n        noisy_gravity = gravity + (2 * jax.random.uniform(noise_rng, shape=gravity.shape) - 1) * self._config.noise_config.level * self._config.noise_config.scales.gravity\n        joint_angles = data.qpos[7:]\n        info['rng'], noise_rng = jax.random.split(info['rng'])\n        noisy_joint_angles = joint_angles + (2 * jax.random.uniform(noise_rng, shape=joint_angles.shape) - 1) * self._config.noise_config.level * self._config.noise_config.scales.joint_pos\n        joint_vel = data.qvel[6:]\n        info['rng'], noise_rng = jax.random.split(info['rng'])\n        noisy_joint_vel = joint_vel + (2 * jax.random.uniform(noise_rng, shape=joint_vel.shape) - 1) * self._config.noise_config.level * self._config.noise_config.scales.joint_vel\n        linvel = self.get_local_linvel(data)\n        info['rng'], noise_rng = jax.random.split(info['rng'])\n        noisy_linvel = linvel + (2 * jax.random.uniform(noise_rng, shape=linvel.shape) - 1) * self._config.noise_config.level * self._config.noise_config.scales.linvel\n        state = jp.hstack([noisy_linvel, noisy_gyro, noisy_gravity, noisy_joint_angles - self._default_pose, noisy_joint_vel, info['last_act'], info['command']])",
+   "caption": "A slice of the simulator’s own code, which Astra reads with the reward computations removed: when a robot has fallen, and what its sensors report.",
+   "src": "Generation 27, the first message Astra gets, lines 467–487"
+  },
+  {
+   "key": "numbers",
+   "label": "Numbers",
+   "file": "gen027_t0.prompt.txt",
+   "at": "lines 1235–1241",
+   "wrap": true,
+   "hl": [
+    0
+   ],
+   "text": "EQ36: velocity error 0.244 (while upright 0.244) | yaw-rate error 0.268 (while upright 0.268) | falls+collapses 0/64\n   tracking gain vx 0.76, vy 0.64, wz 0.83\n   by command type (% of time) velocity/yaw-rate error: stand (2%) 0.064/0.144 | turn in place (6%) 0.117/0.220 | forward (18%) 0.208/0.234 | backward (22%) 0.177/0.228 | sideways/diagonal (52%) 0.307/0.308 | fast |vx|>=1 (24%) 0.401/0.294 | moving with |wz|>=0.6 (31%) 0.310/0.329\n   calibration holds, commanded -> measured (vx,vy,wz): +0.50,+0.00,+0.00 -> +0.56,-0.00,-0.00 | +1.00,+0.00,+0.00 -> +1.00,+0.01,-0.04 | +1.50,+0.00,+0.00 -> +1.21,-0.03,+0.02 | +0.00,+0.00,+0.00 -> -0.01,+0.00,-0.01 | -0.50,+0.00,+0.00 -> -0.44,+0.01,-0.05 | -1.20,+0.00,+0.00 -> -1.00,-0.01,-0.00 | +0.00,+0.40,+0.00 -> +0.03,+0.41,-0.11 | +0.00,-0.40,+0.00 -> +0.03,-0.37,+0.06 | +0.00,+0.80,+0.00 -> -0.00,+0.58,+0.06 | +0.00,-0.80,+0.00 -> -0.01,-0.54,-0.05 | +0.00,+0.00,+0.60 -> +0.06,-0.07,+0.63 | +0.00,+0.00,-0.60 -> -0.02,+0.06,-0.62 | +0.00,+0.00,+1.20 -> +0.07,-0.09,+1.07 | +0.00,+0.00,-1.20 -> -0.06,+0.09,-1.04 | +0.80,+0.00,+0.80 -> +0.81,-0.13,+0.81 | -0.80,+0.00,-0.80 -> -0.71,-0.00,-0.76\n   calibration stepping (steps/s per leg / stance stroke m / foot slip m/s / % outputs saturated): vx+0.5: 3.9/0.09/0.09/0 | vx+1.0: 4.2/0.14/0.15/0 | vx+1.5: 4.5/0.15/0.16/0 | stop: 0.5/0.01/0.02/0 | vx-0.5: 3.6/0.06/0.12/0 | vx-1.2: 4.1/0.11/0.20/0 | vy+0.4: 4.0/0.06/0.11/0 | vy-0.4: 3.9/0.06/0.10/0 | vy+0.8: 4.4/0.07/0.16/0 | vy-0.8: 4.7/0.06/0.15/0 | wz+0.6: 3.7/0.03/0.09/0 | wz-0.6: 3.7/0.03/0.07/0 | wz+1.2: 3.7/0.04/0.10/0 | wz-1.2: 3.6/0.04/0.09/0 | vx+0.8wz+0.8: 4.2/0.09/0.12/0 | vx-0.8wz-0.8: 3.7/0.08/0.14/0\n   gait: tilt 4.2 deg, trunk height 0.255 m, duty FR/FL/RR/RL 0.53 0.55 0.57 0.58, swing-foot height 0.060 m, touchdowns 16.3/s, action jitter 0.187\nNL42: velocity error 0.245 (while upright 0.245) | yaw-rate error 0.269 (while upright 0.269) | falls+collapses 0/64",
+   "caption": "Robot EQ36’s card on the 64-episode exam of generation 27. Every robot and every trial gets one like it.",
+   "src": "Generation 27, the first message Astra gets, lines 1235–1241"
+  },
+  {
+   "key": "inspect",
+   "label": "Inspect",
+   "file": "gen027_t2.prompt.txt",
+   "at": "lines 184–205",
+   "wrap": false,
+   "hl": [],
+   "text": "INSPECT units of EQ36, exam episode 17:\nt (s) | h1[31] h2[15] h3[17] h3[6] h3[50] h3[51] a[1] a[4] a[7] a[10]\n3.50 | +0.911 +0.721 +0.618 -0.334 -0.080 -0.015 -0.664 +0.940 +0.204 +0.315\n3.54 | +0.996 +0.760 +0.641 +0.050 +0.031 -0.015 -0.318 +0.820 +0.660 +0.484\n3.58 | +0.997 +0.760 +0.641 -0.037 -0.011 -0.015 +0.029 +0.744 +0.546 +0.508\n3.62 | +0.954 +0.742 +0.630 -0.164 -0.035 -0.015 +0.394 +0.352 -0.107 +0.765\n3.66 | +0.960 +0.744 +0.632 -0.115 -0.016 -0.015 +0.655 +0.034 -0.443 +0.672\n3.70 | +0.996 +0.760 +0.641 -0.187 -0.022 -0.015 +0.807 +0.287 -0.088 +0.700\n3.74 | +0.988 +0.757 +0.639 -0.222 -0.039 -0.015 +0.736 +0.540 -0.119 +0.721\n3.78 | +0.758 +0.640 +0.565 -0.187 -0.017 -0.015 -0.195 +0.879 +0.119 +0.619\n3.82 | +0.405 +0.384 +0.366 -0.117 -0.007 -0.015 -0.792 +0.874 +0.265 +0.343\n3.86 | +0.235 +0.231 +0.227 -0.226 -0.029 -0.015 -0.667 +0.904 +0.349 +0.363\n3.90 | +0.435 +0.410 +0.388 -0.270 -0.042 -0.015 -0.313 +0.902 +0.511 +0.515\n3.94 | -0.319 -0.309 -0.299 -0.317 -0.052 -0.015 +0.088 +0.592 -0.187 +0.657\n3.98 | -0.383 -0.365 -0.350 -0.393 -0.046 -0.015 +0.658 +0.103 -0.665 +0.703\n4.02 | -0.407 -0.386 -0.368 -0.339 -0.024 -0.015 +0.713 +0.064 -0.724 +0.683\n4.06 | -0.388 -0.370 -0.354 -0.291 -0.017 -0.015 +0.732 +0.128 -0.560 +0.667\n4.10 | -0.155 -0.154 -0.152 -0.094 +0.033 -0.015 +0.202 +0.575 -0.270 +0.596\n4.14 | -0.227 -0.224 -0.220 +0.113 +0.053 -0.015 -0.690 +0.790 +0.324 -0.053\n4.18 | +0.350 +0.337 +0.324 +0.248 +0.068 -0.015 -0.822 +0.804 +0.282 +0.006\n4.22 | -0.742 -0.630 -0.558 +0.227 +0.028 -0.015 -0.828 +0.727 +0.281 +0.097\n4.26 | -0.819 -0.674 -0.588 +0.003 -0.038 -0.015 -0.306 +0.222 +0.189 +0.056",
+   "caption": "Astra asked to watch ten units inside EQ36 during exam episode 17, from 3.5 s on. These are the first rows of what came back.",
+   "src": "Generation 27, the third message Astra gets, lines 184–205"
+  },
+  {
+   "key": "reply",
+   "label": "Its reply",
+   "file": "gen027_t1.reply.txt",
+   "at": "lines 17–28",
+   "wrap": false,
+   "hl": [],
+   "text": "```edits ProjectedHeave\nW1[0,76:80] = [0.25,-0.25,0.25,-0.25]\nW1[6,76:80] = [0.25,-0.25,-0.25,0.25]\nW1[1,80:84] = [0.25,-0.25,0.25,-0.25]\nW1[7,80:84] = [0.25,-0.25,-0.25,0.25]\nW1[2,84:88] = [0.25,-0.25,0.25,-0.25]\nW1[8,84:88] = [0.25,-0.25,-0.25,0.25]\nb1[76:88] = 0.6585\nW2[76:88,41] = [5.196,5.196,-5.196,-5.196,5.196,5.196,-5.196,-5.196,5.196,5.196,-5.196,-5.196]\nW3[41,59] = {v}\nW4[59,:] = [0,0.5,-1,0,0.5,-1,0,0.5,-1,0,0.5,-1]\n```",
+   "caption": "One trial from Astra’s second reply: twelve tanh units that multiply velocity by gravity to estimate how fast the body rises, wired to the legs. {v} was tried at 0.2 and 0.4.",
+   "src": "Generation 27, Astra’s second reply, lines 17–28"
+  },
+  {
+   "key": "result",
+   "label": "Result",
+   "file": "gen027_t2.prompt.txt",
+   "at": "lines 19–26",
+   "wrap": true,
+   "hl": [
+    7
+   ],
+   "text": "TRIAL trial:ProjectedHeave@0.2 (parent EQ36; 10 statements applied):\ntrial:ProjectedHeave@0.2: velocity error 0.243 (while upright 0.243) | yaw-rate error 0.263 (while upright 0.263) | falls+collapses 0/64\n   tracking gain vx 0.77, vy 0.63, wz 0.84\n   by command type (% of time) velocity/yaw-rate error: stand (2%) 0.064/0.141 | turn in place (6%) 0.109/0.216 | forward (18%) 0.206/0.235 | backward (22%) 0.178/0.233 | sideways/diagonal (52%) 0.305/0.296 | fast |vx|>=1 (24%) 0.404/0.296 | moving with |wz|>=0.6 (31%) 0.307/0.319\n   calibration holds, commanded -> measured (vx,vy,wz): +0.50,+0.00,+0.00 -> +0.57,-0.00,-0.03 | +1.00,+0.00,+0.00 -> +1.00,+0.01,-0.06 | +1.50,+0.00,+0.00 -> +1.22,+0.02,-0.03 | +0.00,+0.00,+0.00 -> -0.00,+0.00,-0.01 | -0.50,+0.00,+0.00 -> -0.44,+0.02,-0.04 | -1.20,+0.00,+0.00 -> -1.00,+0.08,-0.08 | +0.00,+0.40,+0.00 -> +0.02,+0.38,-0.08 | +0.00,-0.40,+0.00 -> +0.03,-0.39,+0.13 | +0.00,+0.80,+0.00 -> +0.00,+0.53,+0.12 | +0.00,-0.80,+0.00 -> -0.02,-0.53,-0.04 | +0.00,+0.00,+0.60 -> +0.06,-0.06,+0.65 | +0.00,+0.00,-0.60 -> -0.02,+0.05,-0.64 | +0.00,+0.00,+1.20 -> +0.08,-0.09,+1.09 | +0.00,+0.00,-1.20 -> -0.05,+0.07,-1.05 | +0.80,+0.00,+0.80 -> +0.82,-0.12,+0.81 | -0.80,+0.00,-0.80 -> -0.71,-0.01,-0.81\n   calibration stepping (steps/s per leg / stance stroke m / foot slip m/s / % outputs saturated): vx+0.5: 3.7/0.09/0.09/0 | vx+1.0: 4.1/0.14/0.14/0 | vx+1.5: 4.0/0.17/0.17/0 | stop: 0.1/0.00/0.01/0 | vx-0.5: 4.2/0.05/0.13/0 | vx-1.2: 4.3/0.10/0.22/0 | vy+0.4: 4.0/0.05/0.10/0 | vy-0.4: 4.3/0.05/0.11/0 | vy+0.8: 4.7/0.07/0.17/0 | vy-0.8: 4.9/0.05/0.15/0 | wz+0.6: 3.4/0.03/0.08/0 | wz-0.6: 3.5/0.03/0.08/0 | wz+1.2: 3.7/0.04/0.09/0 | wz-1.2: 3.8/0.04/0.09/0 | vx+0.8wz+0.8: 4.1/0.10/0.13/0 | vx-0.8wz-0.8: 3.8/0.07/0.15/0\n   gait: tilt 4.2 deg, trunk height 0.255 m, duty FR/FL/RR/RL 0.53 0.56 0.57 0.58, swing-foot height 0.060 m, touchdowns 16.3/s, action jitter 0.187\n   vs EQ36 (same 64 episodes): velocity error 0.244 -> 0.243, yaw-rate error 0.268 -> 0.263, falls+collapses 0 -> 0; velocity error lower in 38 episodes, higher in 26, equal in 0",
+   "caption": "What came back for that trial at 0.2, compared with its parent EQ36 on the same 64 episodes.",
+   "src": "Generation 27, the third message Astra gets, lines 19–26"
+  }
+ ]
+}

@@ -165,49 +165,6 @@
       ],
       "body": "## Abstract\nEvaluating complex texts across domains requires converting user defined criteria into quantitative, explainable indicators, which is a persistent challenge in search and recommendation systems. Single prompt LLM evaluations suffer from complexity and latency issues, while criterion specific decomposition approaches rely on naive averaging or opaque black-box aggregation methods. We present an interpretable aggregation framework combining LLM scoring with the Analytic Hierarchy Process. Our method generates criterion specific scores via LLM as judge, measures discriminative power using Jensen Shannon distance, and derives statistically grounded weights through AHP pairwise comparison matrices. Experiments on Amazon review quality assessment and depression related text scoring demonstrate that our approach achieves high explainability and operational efficiency while maintaining comparable predictive power, making it suitable for real time latency sensitive web services.",
       "short": "LLM–AHP Indicators"
-    },
-    {
-      "id": "snap",
-      "title": "SNAP: Enhancing Long-Form Narrative Agents with Cell-Based Segmentation and Plan-Driven Dialogue Strategies",
-      "authors": [
-        "Geonwoo Bang",
-        "DongMyung Kim",
-        "Hayoung Oh"
-      ],
-      "venue": "KAIA 2025",
-      "year": 2025,
-      "type": "conference",
-      "badge": "",
-      "selected": false,
-      "links": {
-        "pdf": "https://arxiv.org/pdf/2601.11529",
-        "arxiv": "https://arxiv.org/abs/2601.11529"
-      },
-      "bibtex": "",
-      "cover": "content/images/snap-overview.png",
-      "images": [
-        "content/images/snap-overview.png"
-      ],
-      "body": "## Abstract\nLarge Language Models (LLMs) hold great potential for web-based interactive applications, including browser games, online education, and digital storytelling platforms. However, LLM-based conversational agents suffer from spatiotemporal distortions when responding to variant user inputs, failing to maintain consistency with provided scenarios. We propose SNAP (Story and Narrative-based Agent with Planning), a framework that structures narratives into Cells with explicit Plans to prevent narrative drift in web environments. By confining context within each Cell and employing detailed plans that specify spatiotemporal settings, character actions, and plot developments, SNAP enables coherent and scenario-consistent dialogues while adapting to diverse user responses. Via automated and human evaluations, we validate SNAP's superiority in narrative controllability, demonstrating effective scenario consistency despite variant user inputs in web-based interactive storytelling."
-    },
-    {
-      "id": "game-based-digital-therapy",
-      "title": "Methodology for Implementing a Game-based Digital Therapy Using Generative AI to Reduce Impulsivity in Game-addicted Adolescents",
-      "authors": [
-        "Geonwoo Bang",
-        "et al."
-      ],
-      "venue": "JKIICE 2024",
-      "year": 2024,
-      "type": "journal",
-      "badge": "",
-      "selected": false,
-      "links": {},
-      "bibtex": "",
-      "cover": "",
-      "images": [],
-      "body": "",
-      "short": "Game-based Digital Therapy"
     }
   ],
   "projects": [
@@ -308,7 +265,28 @@
       "detail": "B.S. in Computer Science and Engineering — 4.44/4.5\nB.Econ. in Statistics — 4.5/4.5\nB.S. in Computer Education — 4.21/4.5"
     }
   ],
+  "research": [
+    {
+      "title": "Group-level personas",
+      "text": "Most LLM personas describe one imagined person, with a name, an age and a backstory. That works for a single conversation, but it does not scale to experiments that need thousands of users whose tastes vary the way real populations do. I want to build personas for groups, describing how preferences and behavior are spread across a group instead of one typical member, so they can be used in large-scale experiments."
+    },
+    {
+      "title": "LLM simulation for recommendation",
+      "text": "On top of group-level personas, I want to use LLM simulation to evaluate many kinds of recommendation tasks without people in the loop. A simulated evaluation is only worth running if it reaches the same conclusions real users would, so for each task I want to measure that agreement before trusting the simulation."
+    },
+    {
+      "title": "Personalized LLMs",
+      "text": "Most LLMs treat every user the same until the user restates their preferences in the prompt. I want models that learn what a person cares about from ordinary use and keep that knowledge in a form the person can read and correct. Preferences also drift, so the model should notice when its picture of someone has gone stale."
+    }
+  ],
   "experience": [
+    {
+      "kind": "research",
+      "when": "Aug 2025 – Present",
+      "what": "Research Collaborator",
+      "where": "SW Lab, Sungkyunkwan University",
+      "detail": "Researched recommender system unlearning and sequential recommendation for education\nDeveloped PII detection methods to identify and protect sensitive information in data"
+    },
     {
       "kind": "research",
       "when": "Mar 2025 – Present",
@@ -321,10 +299,10 @@
       "when": "Jan 2024 – Jan 2025",
       "what": "Research Assistant",
       "where": "LAMDA Lab, Sungkyunkwan University",
-      "detail": "Core team member in securing a $5M national R&D grant on AI-based digital therapeutics\nDeveloped a generative AI NPC framework and co-authored 3 publications and a patent"
+      "detail": "Core team member in securing a $5M national R&D grant on AI-based digital therapeutics\nDeveloped a generative AI NPC framework and implemented intelligent character interactions"
     },
     {
-      "kind": "professional",
+      "kind": "service",
       "when": "Feb 2022 – Oct 2023",
       "what": "Communications & IT Specialist (PO2)",
       "where": "Republic of Korea Navy 2nd Fleet, Incheon",
@@ -436,6 +414,14 @@
       "when": "2026.02",
       "kind": "academic",
       "text": "Graduated summa cum laude from Sungkyunkwan University."
+    }
+  ],
+  "posts": [
+    {
+      "title": "Weight-Space Programming for Robot Control",
+      "date": "2026-11-11",
+      "url": "blog/wsp-robot-control/",
+      "summary": "No reward, only a goal sentence: over 100 generations GPT-6 Astra wrote a simulated Go1’s walking controller as plain numbers, starting from all zeros. Its velocity error on a hidden test fell from 0.797 to about 0.22 m/s."
     }
   ]
 }

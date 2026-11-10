@@ -1,0 +1,87 @@
+/* Interactive figures for the post: the generation replay (#robot-demo) and what Astra gets (#astra-sees).
+   Light theme only: every color is fixed here, so the figures look the same whatever the page around them does. */
+
+.wd {
+  --wd-ink: #16181c;
+  --wd-ink-2: #474c55;
+  --wd-muted: #6b717b;
+  --wd-rule: #e4e6ea;
+  --wd-rule-2: #c9cdd4;
+  --wd-code: #f4f5f7;
+  --wd-blue: #1e4f91;
+  --wd-cmd: #c45a00;
+  --wd-zero: #8d939c;
+  --wd-tint: rgba(30, 79, 145, 0.1);
+  display: block;
+  margin: 1.5rem 0;
+  color: var(--wd-ink);
+  background: #ffffff;
+  font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.wd *, .wd *::before, .wd *::after { box-sizing: border-box; }
+.wd button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+.wd button:focus-visible, .wd input:focus-visible, .wd [tabindex]:focus-visible { outline: 2px solid var(--wd-blue); outline-offset: 2px; }
+
+/* ---------- robot replay ---------- */
+
+.wd-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 0.375rem; margin: 0 0 0.5rem; }
+.wd-lab { color: var(--wd-muted); font-size: 0.8125rem; margin-right: 0.25rem; }
+.wd-gen {
+  min-width: 2.5rem; min-height: 2.25rem; padding: 0.25rem 0.5rem;
+  border: 1px solid var(--wd-rule-2); border-radius: 4px; background: #ffffff; cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.wd-gen:hover { border-color: var(--wd-ink-2); }
+.wd-gen[aria-pressed="true"] { background: var(--wd-ink); border-color: var(--wd-ink); color: #ffffff; }
+
+.wd-info { margin: 0 0 0.5rem; color: var(--wd-ink-2); font-size: 0.8125rem; }
+.wd-info b { color: var(--wd-ink); font-weight: 600; }
+
+.wd-stage { position: relative; border: 1px solid var(--wd-rule); border-radius: 4px; overflow: hidden; background: #fbfbfc; }
+.wd-stage canvas { display: block; width: 100%; height: 240px; touch-action: pan-y; cursor: grab; }
+.wd-stage canvas:active { cursor: grabbing; }
+.wd-msg {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 1rem;
+  text-align: center; color: var(--wd-muted); background: rgba(255, 255, 255, 0.75);
+}
+.wd-msg[hidden] { display: none; }
+.wd-hint { position: absolute; right: 0.5rem; bottom: 0.3rem; font-size: 0.6875rem; color: var(--wd-muted); pointer-events: none; }
+
+.wd-ctl { display: flex; align-items: center; gap: 0.625rem; margin: 0.5rem 0 0.375rem; }
+.wd-play {
+  flex: none; min-width: 4.75rem; min-height: 2.25rem; padding: 0.25rem 0.625rem;
+  border: 1px solid var(--wd-rule-2); border-radius: 4px; background: #ffffff; cursor: pointer;
+}
+.wd-play:hover { border-color: var(--wd-ink-2); }
+.wd-ctl input[type="range"] { flex: 1; min-width: 0; height: 2.25rem; margin: 0; accent-color: var(--wd-ink); cursor: pointer; }
+.wd-time { flex: none; min-width: 3.75rem; text-align: right; color: var(--wd-muted); font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+
+.wd-legend { display: flex; flex-wrap: wrap; gap: 0.125rem 1rem; margin: 0 0 0.625rem; padding: 0; list-style: none; color: var(--wd-ink-2); font-size: 0.8125rem; }
+.wd-legend li { display: flex; align-items: center; gap: 0.375rem; }
+.wd-sw { flex: none; display: inline-block; width: 1rem; height: 3px; border-radius: 2px; }
+.wd-sw.dot { width: 0.625rem; height: 0.625rem; border-radius: 50%; }
+
+.wd-chart canvas { display: block; width: 100%; height: 160px; touch-action: pan-y; cursor: ew-resize; }
+.wd-now { margin: 0.25rem 0 0; color: var(--wd-muted); font-family: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+
+/* ---------- what Astra gets ---------- */
+
+.wd-tabs { display: flex; flex-wrap: wrap; gap: 0 0.125rem; margin: 0 0 0.75rem; border-bottom: 1px solid var(--wd-rule); }
+.wd-tab {
+  min-height: 2.5rem; padding: 0.375rem 0.625rem; margin-bottom: -1px;
+  border: 0; border-bottom: 2px solid transparent; background: none; color: var(--wd-ink-2); cursor: pointer;
+}
+.wd-tab:hover { color: var(--wd-ink); }
+.wd-tab[aria-selected="true"] { color: var(--wd-ink); border-bottom-color: var(--wd-ink); font-weight: 600; }
+.wd-cap { margin: 0 0 0.5rem; color: var(--wd-ink-2); }
+.wd-pre {
+  margin: 0; padding: 0.75rem 0.875rem; max-height: 30rem; overflow: auto;
+  background: var(--wd-code); border-radius: 4px; color: var(--wd-ink);
+  font-family: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 0.75rem; line-height: 1.55;
+  white-space: pre; tab-size: 4; font-variant-ligatures: none;
+}
+.wd-pre.wrap { white-space: pre-wrap; overflow-wrap: anywhere; }
+.wd-pre mark { background: var(--wd-tint); color: inherit; border-radius: 2px; }
+.wd-src { margin: 0.375rem 0 0; color: var(--wd-muted); font-size: 0.75rem; }

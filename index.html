@@ -1,47 +1,201 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Research Bento</title>
-  <meta name="description" content="A research portfolio, packed like a lunchbox" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍱</text></svg>" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Courier+Prime:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Karla:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Geonwoo Bang</title>
+  <meta name="description" content="Geonwoo Bang, MSc student in Data Science at ETH Zürich. Recommender systems, fairness and robustness, explainable AI, and LLM-based agents.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Geonwoo Bang">
+  <meta property="og:description" content="MSc student in Data Science at ETH Zürich. Publications, CV and blog.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316181c'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Helvetica%2CArial%2Csans-serif' font-size='38' font-weight='600' fill='%23ffffff'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+  <link rel="stylesheet" href="assets/site.css">
+  <script src="assets/site.js" defer></script>
 </head>
-<body>
-  <main class="page">
-    <header class="masthead">
-      <p class="kicker">Today's Bento</p>
-      <h1 id="name"></h1>
-      <p class="hint"><span>tap a dish, a flag, or anything on the table</span><a id="cv-link" class="cv-link" href="#" target="_blank" rel="noopener" hidden>Download CV (PDF)</a></p>
-    </header>
+<body data-root="">
+<!-- The blocks between render comments come from content/data.json: tools/build_home.py writes
+     them here, and assets/site.js rebuilds them in the browser. Edit data.json (or admin.html),
+     not these blocks. -->
+<header class="wrap site-head site-head-home">
+  <nav class="site-nav" aria-label="Site">
+    <a href="#publications">Publications</a>
+    <a href="blog/">Blog</a>
+    <a href="content/cv.pdf">CV</a>
+  </nav>
+</header>
 
-    <!-- One illustrated table: dishes · side label (about) · receipt (news) · chopsticks (contact) -->
-    <section class="scene" id="scene" aria-label="A lunchbox on a table"></section>
+<main class="wrap">
+  <!-- render:intro -->
+  <header class="intro" data-render="intro"><h1>Geonwoo Bang</h1>
+<p class="dek">Building trustworthy recommenders and LLM agents.</p>
+<p class="bio">I am an MSc student in Data Science at ETH Zürich. I graduated summa cum laude from Sungkyunkwan University with a triple degree in Computer Science &amp; Engineering, Statistics, and Computer Education. My research spans recommender systems, fairness and robustness, explainable AI, and LLM-based agents.</p>
+<ul class="contact">
+<li><a href="mailto:g7199@g.skku.edu">g7199@g.skku.edu</a></li>
+<li><a href="https://www.linkedin.com/in/g7199/">LinkedIn</a></li>
+<li><a href="content/cv.pdf">CV</a></li>
+</ul></header>
+  <!-- /render:intro -->
 
-    <footer class="foot" id="foot"></footer>
-  </main>
+  <section class="sec" id="education">
+    <h2>Education</h2>
+    <!-- render:education -->
+    <ul class="list entries" data-render="education"><li><p class="entry-title"><span class="t">MSc in Data Science</span><span class="w">, ETH Zürich</span></p>
+<p class="meta">Sep 2026 – Present</p></li>
+<li><p class="entry-title"><span class="t">Triple Degree Program · Summa Cum Laude</span><span class="w">, Sungkyunkwan University</span></p>
+<p class="meta">Mar 2020 – Feb 2026</p>
+<ul class="d"><li>B.S. in Computer Science and Engineering — 4.44/4.5</li><li>B.Econ. in Statistics — 4.5/4.5</li><li>B.S. in Computer Education — 4.21/4.5</li></ul></li></ul>
+    <!-- /render:education -->
+  </section>
 
-  <dialog class="sheet" id="sheet" aria-labelledby="sheet-title">
-    <div class="sheet-inner">
-      <header class="sheet-head">
-        <span class="sheet-art" id="sheet-art"></span>
-        <div>
-          <p class="sheet-no" id="sheet-no"></p>
-          <h2 id="sheet-title"></h2>
-        </div>
-        <button class="close" id="sheet-close" aria-label="Close">Close ✕</button>
-      </header>
-      <div class="sheet-body" id="sheet-body" tabindex="-1"></div>
-    </div>
-  </dialog>
+  <section class="sec" id="research">
+    <h2>Research plan</h2>
+    <!-- render:research -->
+    <ul class="list plans" data-render="research"><li><h3 class="plan-title">Group-level personas</h3>
+<p class="plan-text">Most LLM personas describe one imagined person, with a name, an age and a backstory. That works for a single conversation, but it does not scale to experiments that need thousands of users whose tastes vary the way real populations do. I want to build personas for groups, describing how preferences and behavior are spread across a group instead of one typical member, so they can be used in large-scale experiments.</p></li>
+<li><h3 class="plan-title">LLM simulation for recommendation</h3>
+<p class="plan-text">On top of group-level personas, I want to use LLM simulation to evaluate many kinds of recommendation tasks without people in the loop. A simulated evaluation is only worth running if it reaches the same conclusions real users would, so for each task I want to measure that agreement before trusting the simulation.</p></li>
+<li><h3 class="plan-title">Personalized LLMs</h3>
+<p class="plan-text">Most LLMs treat every user the same until the user restates their preferences in the prompt. I want models that learn what a person cares about from ordinary use and keep that knowledge in a form the person can read and correct. Preferences also drift, so the model should notice when its picture of someone has gone stale.</p></li></ul>
+    <!-- /render:research -->
+  </section>
 
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <section class="sec" id="news">
+    <h2>News</h2>
+    <!-- render:news -->
+    <ul class="list news" data-render="news"><li>Two papers accepted to WSDM 2027. <span class="meta">Nov 2026</span></li>
+<li>Started my MSc in Data Science at ETH Zürich. <span class="meta">Sep 2026</span></li>
+<li>One paper accepted to CIKM 2026. <span class="meta">Aug 2026</span></li>
+<li>Graduated summa cum laude from Sungkyunkwan University. <span class="meta">Feb 2026</span></li></ul>
+    <!-- /render:news -->
+  </section>
 
-  <script src="bento.js"></script>
-  <script src="main.js"></script>
+  <section class="sec" id="publications">
+    <h2>Publications</h2>
+    <!-- render:publications -->
+    <ol class="list pubs" data-render="publications"><li class="pub"><h3 class="pub-title">Propensity-Weighted Reflection for Recovering Poisoned Recommenders under Partial Identification</h3>
+<p class="pub-authors"><span class="me">Geonwoo Bang</span>, et al.</p>
+<input class="more-toggle" type="checkbox" id="abs-0">
+<p class="pub-meta"><span class="venue">WSDM 2027, accepted</span>
+<label class="more" for="abs-0">Abstract</label></p>
+<div class="more-body"><a href="content/images/pwr-overview.png"><img src="content/images/pwr-overview.png" alt="Overview figure" loading="lazy"></a>
+<p>Recommender systems are vulnerable to data poisoning, while defenses act primarily before or during training. We study post-training recovery when a detector flags only some injected fake profiles. Retraining on the partially cleaned data leaves most of the attack in place. The recovery target uses a propensity correction that subtracts each caught fake in proportion to the detection rate and accounts in expectation for poison missed by the detector. The resulting negative weights can make the training objective indefinite and the solve unstable. We propose Mirror, which deletes each caught interaction and re-inserts a reflection based on the model’s prediction with positive weight. This realizes the correction as reflected training data, leaves the model’s native trainer unchanged, and avoids the indefinite signed formulation. The construction requires a loss with an invertible label map and is instantiated for matrix factorization, graph, and sequential recommenders. For squared error, each round provably reduces the debiased objective. Mirror estimates the missed rate from the attack footprint and each flag’s reliability from the detector posterior, so the same correction handles both detector errors. Against a real detector not developed by the authors and an attacker that obfuscates its profiles, Mirror outperforms retraining in all three model families, with the largest advantage under partial detection, while preserving recommendation quality for genuine users. Controlled sweeps of the identification rate isolate the mechanism: Mirror removes the attack where retraining does not, across eleven datasets and three model families.</p></div></li>
+<li class="pub"><h3 class="pub-title">Whose Fairness? Auditing Exposure Fairness When AI Agents Read Rankings</h3>
+<p class="pub-authors">J. Seo, <span class="me">Geonwoo Bang</span>, et al.</p>
+<input class="more-toggle" type="checkbox" id="abs-1">
+<p class="pub-meta"><span class="venue">WSDM 2027, accepted</span>
+<label class="more" for="abs-1">Abstract</label></p>
+<div class="more-body"><a href="content/images/whose-fairness-overview.png"><img src="content/images/whose-fairness-overview.png" alt="Overview figure" loading="lazy"></a>
+<p>Exposure fairness is computed rather than observed. Every metric weights ranks through an examination curve, conventionally treated as one known measurement instrument. AI agents break that premise. In a bias-controlled study of eight LLMs across six families, agent readers exhibit distinct positional curves, including mild primacy, near-flat behavior, mid-list humps, and reversed primacy. None can stand in for a single human model. The difficulty is not one uncertain curve but several realized at once, so the instrument is set-valued and exposure fairness is only partially identified. Standard existence-style auditing then fails: a ranking can be certified by some plausible curve while every realized reader is treated unfairly. On one workload, calibrating to the human curve leaves the worst-served agent reader worse off than no intervention at all. We characterize this failure, show that the exact worst case and certificate expiry are computable from the set, and derive a min–max robust ranking policy as one linear program. Across four domains, an oracle told the realized curve still pays about a quarter of the fairness premium, the rest being the price of serving all readers at once, while robustness costs at most 0.005 NDCG beyond human-calibrated fairness. The residual ambiguity falls on individual providers. For 27–73% of the top-15, even the direction of exposure harm is unidentified, yet a group-level audit averages that disagreement away. On LastFM, changing the aggregation level produces a thirty-fold gap.</p></div></li>
+<li class="pub"><h3 class="pub-title">EVOL: Simulator-Guided Evolutionary Expert Synthesis for Deployment-Free Learning Path Recommendation</h3>
+<p class="pub-authors"><span class="me">Geonwoo Bang</span>, Dongho Kim, Moohong Min</p>
+<input class="more-toggle" type="checkbox" id="abs-2">
+<p class="pub-meta"><span class="venue">CIKM 2026, accepted</span>
+<a href="https://arxiv.org/pdf/2610.03273">PDF</a>
+<a href="https://arxiv.org/abs/2610.03273">arXiv</a>
+<label class="more" for="abs-2">Abstract</label></p>
+<div class="more-body"><a href="content/images/evol-overview.svg"><img src="content/images/evol-overview.svg" alt="Overview figure" loading="lazy"></a>
+<p>Reinforcement learning (RL) for learning path recommendation (LPR) faces two coupled obstacles. First, the policy must commit to a sequence of L concepts without intermediate feedback, producing a combinatorial search space that grows super-exponentially with L and provides reward only at the final step. Second, expert learning paths would be the natural cure for sparse-reward RL, but they do not exist in educational data, because student logs record what learners did, not what they should have done. We address both obstacles by importing a recipe from simulator-based demonstration learning in robotics: the knowledge tracing simulator is used both to synthesize per-learner expert demonstrations through evolutionary search and to train a deployment-free policy that distills these demonstrations into a feed-forward learner. Our framework, EVOL, instantiates this pipeline with an asymmetric actor-critic where the actor commits to deployment-realistic blind planning while the critic exploits the privileged simulator state during training. Across three datasets (ASSIST15, Junyi, and EdNet; 39-189 concepts) and path lengths L = 5, 10, and 20, EVOL surpasses 8 baselines spanning heuristic, sequential, RL, graph-enhanced RL, and LLM-enhanced methods. We further compare three imitation strategies (BC, AWR, and DAPG) and show that final performance is governed by the quality of evolutionary experts rather than by the particular imitation objective.</p></div></li>
+<li class="pub"><h3 class="pub-title">ReForest: Interpretability Meets Reasoning in Isolation Forest</h3>
+<p class="pub-authors">Juyoung Seo, <span class="me">Geonwoo Bang</span>, Dongho Kim, Moohong Min</p>
+<input class="more-toggle" type="checkbox" id="abs-3">
+<p class="pub-meta"><span class="venue">PAKDD 2026</span>
+<a href="https://arxiv.org/pdf/2610.37316">PDF</a>
+<a href="https://arxiv.org/abs/2610.37316">arXiv</a>
+<a href="https://doi.org/10.1007/978-981-92-1468-6_45">DOI</a>
+<label class="more" for="abs-3">Abstract</label></p>
+<div class="more-body"><a href="content/images/reforest-overview.png"><img src="content/images/reforest-overview.png" alt="Overview figure" loading="lazy"></a>
+<p>Statistical anomaly detection methods like Isolation Forest are efficient but suffer from a critical semantic gap. They identify numerical rarities but fail to understand the contextual meaning of data, often missing subtle, context-dependent anomalies. Conversely, Large Language Models possess strong semantic reasoning capabilities but are prohibitively expensive and slow for large-scale deployment. To bridge this gap, we propose ReForest, a novel framework that synergizes the statistical efficiency of Isolation Forest with the reasoning power of LLMs. ReForest transforms the latent decision paths of Isolation Forest into natural-language explanations, enabling an LLM to refine anomaly detection through an uncertainty-aware dynamic ensemble. This approach allows the model to adaptively weigh statistical and semantic signals based on uncertainty-driven instance-level confidence. Extensive experiments on four real-world datasets (Healthcare, Finance) demonstrate that ReForest significantly outperforms baselines, achieving an average 21% improvement in Recall and a 10% gain in F1-score. Our framework not only improves detection performance but also enhances model transparency by grounding semantic narratives in statistical evidence, providing interpretable rationales essential for high-stakes decision-making.</p></div></li>
+<li class="pub"><h3 class="pub-title">Adaptive PII Detection via Evolutionary Orchestration and Multi-Agent Debate</h3>
+<p class="pub-authors"><span class="me">Geonwoo Bang</span>, Dongho Kim, Damin Kim, Moohong Min</p>
+<input class="more-toggle" type="checkbox" id="abs-4">
+<p class="pub-meta"><span class="venue">PAKDD 2026</span>
+<a href="https://doi.org/10.1007/978-981-92-1947-6_42">DOI</a>
+<label class="more" for="abs-4">Figure</label></p>
+<div class="more-body"><a href="content/images/pii-overview.svg"><img src="content/images/pii-overview.svg" alt="Overview figure" loading="lazy"></a></div></li>
+<li class="pub"><h3 class="pub-title">Transforming User-Defined Criteria into Explainable Indicators with an Integrated LLM-AHP System</h3>
+<p class="pub-authors"><span class="me">Geonwoo Bang</span>, Dongho Kim, Moohong Min</p>
+<input class="more-toggle" type="checkbox" id="abs-5">
+<p class="pub-meta"><span class="venue">arXiv 2025</span>
+<a href="https://arxiv.org/pdf/2601.05267">PDF</a>
+<a href="https://arxiv.org/abs/2601.05267">arXiv</a>
+<label class="more" for="abs-5">Abstract</label></p>
+<div class="more-body"><a href="content/images/uniscore-overview.png"><img src="content/images/uniscore-overview.png" alt="Overview figure" loading="lazy"></a>
+<p>Evaluating complex texts across domains requires converting user defined criteria into quantitative, explainable indicators, which is a persistent challenge in search and recommendation systems. Single prompt LLM evaluations suffer from complexity and latency issues, while criterion specific decomposition approaches rely on naive averaging or opaque black-box aggregation methods. We present an interpretable aggregation framework combining LLM scoring with the Analytic Hierarchy Process. Our method generates criterion specific scores via LLM as judge, measures discriminative power using Jensen Shannon distance, and derives statistically grounded weights through AHP pairwise comparison matrices. Experiments on Amazon review quality assessment and depression related text scoring demonstrate that our approach achieves high explainability and operational efficiency while maintaining comparable predictive power, making it suitable for real time latency sensitive web services.</p></div></li></ol>
+    <!-- /render:publications -->
+  </section>
+
+  <section class="sec" id="blog">
+    <h2>Blog</h2>
+    <!-- render:posts -->
+    <ul class="list posts" data-render="posts"><li><a class="post-link" href="blog/wsp-robot-control/">Weight-Space Programming for Robot Control</a> <span class="meta"><time datetime="2026-11-11">Nov 11, 2026</time></span>
+<p class="sum">No reward, only a goal sentence: over 100 generations GPT-6 Astra wrote a simulated Go1’s walking controller as plain numbers, starting from all zeros. Its velocity error on a hidden test fell from 0.797 to about 0.22 m/s.</p></li></ul>
+    <!-- /render:posts -->
+  </section>
+
+  <section class="sec" id="experience">
+    <h2>Experience</h2>
+    <!-- render:experience -->
+    <div data-render="experience"><h3 class="sub">Research</h3>
+<ul class="list entries">
+<li><p class="entry-title"><span class="t">Research Collaborator</span><span class="w">, SW Lab, Sungkyunkwan University</span></p>
+<p class="meta">Aug 2025 – Present</p>
+<ul class="d"><li>Researched recommender system unlearning and sequential recommendation for education</li><li>Developed PII detection methods to identify and protect sensitive information in data</li></ul></li>
+<li><p class="entry-title"><span class="t">Research Assistant</span><span class="w">, Motion AI Lab, Sungkyunkwan University</span></p>
+<p class="meta">Mar 2025 – Present</p>
+<ul class="d"><li>Implemented a real-time responsive motion matching system using motion capture data</li><li>Developed keyframe extraction and motion compression using diffusion and reinforcement learning</li></ul></li>
+<li><p class="entry-title"><span class="t">Research Assistant</span><span class="w">, LAMDA Lab, Sungkyunkwan University</span></p>
+<p class="meta">Jan 2024 – Jan 2025</p>
+<ul class="d"><li>Core team member in securing a $5M national R&amp;D grant on AI-based digital therapeutics</li><li>Developed a generative AI NPC framework and implemented intelligent character interactions</li></ul></li>
+</ul>
+<h3 class="sub">Teaching</h3>
+<ul class="list entries">
+<li><p class="entry-title"><span class="t">Information and Communication</span><span class="w">, Sunrin High School</span></p>
+<p class="meta">Spring 2025 · Lab Instructor · 20 students</p></li>
+<li><p class="entry-title"><span class="t">AI Basics &amp; Uses</span><span class="w">, Sungkyunkwan University</span></p>
+<p class="meta">Fall 2024 · Teaching Assistant · 618 students</p></li>
+<li><p class="entry-title"><span class="t">Thesis Writing in Social Sciences using Python</span><span class="w">, Sungkyunkwan University</span></p>
+<p class="meta">Summer 2024 · Teaching Assistant · 524 students</p></li>
+<li><p class="entry-title"><span class="t">AI Basics &amp; Uses</span><span class="w">, Sungkyunkwan University</span></p>
+<p class="meta">Spring 2024 · Teaching Assistant · 610 students</p></li>
+<li><p class="entry-title"><span class="t">AI Basics &amp; Uses</span><span class="w">, Sungkyunkwan University</span></p>
+<p class="meta">Fall 2023 · Teaching Assistant · 589 students</p></li>
+</ul>
+<h3 class="sub">Service</h3>
+<ul class="list entries">
+<li><p class="entry-title"><span class="t">Communications &amp; IT Specialist (PO2)</span><span class="w">, Republic of Korea Navy 2nd Fleet, Incheon</span></p>
+<p class="meta">Feb 2022 – Oct 2023</p>
+<ul class="d"><li>Operated military-grade satellite, microwave, and radio communication systems</li><li>Deployed twice for North Korean drone threat response, ensuring flawless communication</li></ul></li>
+</ul></div>
+    <!-- /render:experience -->
+  </section>
+
+  <section class="sec" id="awards">
+    <h2>Awards and scholarships</h2>
+    <!-- render:awards -->
+    <div data-render="awards"><h3 class="sub">Awards</h3>
+<ul class="list awards">
+<li><span class="t">Gold Prize – SKKU AI Hackathon</span> <span class="meta">2025</span></li>
+<li><span class="t">Grand Prize – SKKU AI Hackathon</span> <span class="meta">2024</span></li>
+<li><span class="t">Special Prize – K-PaaS Service Development Contest</span><span class="w">, MSIT, Korea</span> <span class="meta">2024</span></li>
+<li><span class="t">Third Prize – MAFA Public Data Utilization Startup Contest</span><span class="w">, MAFA, Korea</span> <span class="meta">2024</span></li>
+<li><span class="t">Excellence Prize – Data Safety Zone Competition</span><span class="w">, MSIT, Korea</span> <span class="meta">2023</span></li>
+</ul>
+<h3 class="sub">Scholarships</h3>
+<ul class="list awards">
+<li><span class="t">Academic Excellence Scholarship (Top ≤ 4%)</span><span class="w">, SKKU</span> <span class="meta">2024–25</span></li>
+<li><span class="t">Challenge Semester TA Scholarship</span><span class="w">, SKKU</span> <span class="meta">2024</span></li>
+<li><span class="t">University Innovation Scholarship</span><span class="w">, SKKU</span> <span class="meta">2024</span></li>
+</ul></div>
+    <!-- /render:awards -->
+  </section>
+</main>
+
+<footer class="wrap site-foot">
+  <p>© 2026 Geonwoo Bang</p>
+</footer>
 </body>
 </html>
