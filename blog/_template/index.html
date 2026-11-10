@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Post template. Copy this folder to blog/<slug>/, replace the text, and delete the robots line.
+       Every class used below is described in DESIGN.md. -->
+  <meta name="robots" content="noindex">
+  <title>Post title · Geonwoo Bang</title>
+  <meta name="description" content="One or two sentences: what the post shows.">
+  <meta name="author" content="Geonwoo Bang">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Post title">
+  <meta property="og:description" content="One or two sentences: what the post shows.">
+  <meta property="article:published_time" content="2026-11-10">
+  <meta name="citation_title" content="Post title">
+  <meta name="citation_author" content="Bang, Geonwoo">
+  <meta name="citation_publication_date" content="2026/11/10">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316181c'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Helvetica%2CArial%2Csans-serif' font-size='38' font-weight='600' fill='%23ffffff'%3EG%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+  <link rel="stylesheet" href="../../assets/site.css">
+  <script src="../../assets/site.js" defer></script>
+</head>
+<body data-root="../../">
+<header class="wrap site-head">
+  <a class="site-name" href="../../">Geonwoo Bang</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="../../#publications">Publications</a>
+    <a href="../" aria-current="page">Blog</a>
+    <a href="../../content/cv.pdf">CV</a>
+  </nav>
+</header>
+
+<main>
+<article class="post">
+
+  <header class="post-head">
+    <h1 class="post-title">Post title in a few words</h1>
+    <p class="post-subtitle">One sentence under the title that says what happened, in plain words.</p>
+    <p class="post-meta">Geonwoo Bang · <time datetime="2026-11-10">November 10, 2026</time></p>
+    <p class="post-status">Optional: one line on the state of the work, such as a run that is still going.</p>
+  </header>
+
+  <p>Start with the thing itself: the first concrete event, line or result, not a list of findings. Body paragraphs are plain <code>&lt;p&gt;</code> elements, direct children of the article. Inline code looks like <code>W1[52,0] = 0.7</code> and never breaks across lines, so keep it short. A citation is a link to the reference list, such as <a class="cite-ref" href="#ref-example2026">Example et al. (2026)</a>.</p>
+
+  <p>A side note sits in the right margin on wide screens and opens in place when its number is tapped on a phone.<span class="sn"><input class="sn-toggle" type="checkbox" id="sn-example"><label class="sn-ref" for="sn-example"></label><span class="sn-note">A side note is one to three short sentences: a definition, a number, an aside that would break the paragraph.</span></span> The text simply continues after it.</p>
+
+  <h2 id="section">A section heading that says what happens</h2>
+
+  <p>Sections are <code>&lt;h2 id="…"&gt;</code>, short statements rather than questions. Subsections, when a section needs them, are <code>&lt;h3&gt;</code>.</p>
+
+  <h3 id="subsection">A subsection heading</h3>
+
+  <p>A figure holds an image or a code block, and its caption starts with the figure number.</p>
+
+  <figure id="fig-example">
+    <img src="figure.svg" alt="Describe what the figure shows, for readers who cannot see it." width="600" height="260">
+    <figcaption><span class="fig-label">Figure 1.</span> What the reader should see in the figure, and how it was measured.</figcaption>
+  </figure>
+
+  <figure id="fig-tall-example" class="side">
+    <img src="figure-tall.svg" alt="Describe what the figure shows, for readers who cannot see it." width="400" height="520">
+    <figcaption><span class="fig-label">Figure 2.</span> A tall, narrow figure gets <code>class="side"</code>: on wide screens its caption moves into the right margin, level with the top of the image.</figcaption>
+  </figure>
+
+  <figure id="fig-edits-example">
+<pre><code><span class="c"># a comment, in gray, on its own line</span>
+b1[1:13] = 0.6585
+W1[45,1:5] = [0.45,-0.45,0.45,-0.45]</code></pre>
+    <figcaption><span class="fig-label">Figure 3.</span> Edit lines copied from the model's reply. Long lines wrap on phones.</figcaption>
+  </figure>
+
+  <p>The model's own words go in a quote, verbatim, with where they come from:</p>
+
+  <blockquote>
+    <p>A sentence the model wrote, copied exactly.</p>
+    <footer>The model's notebook, end of generation 25</footer>
+  </blockquote>
+
+  <pre><code>a log line or a harness reply, as plain text: velocity error 0.244 -> 0.243</code></pre>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Trial</th><th class="num">Error (m/s)</th><th class="num">Falls of 64</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Parent, unchanged</td><td class="num">0.244</td><td class="num">0</td></tr>
+        <tr><td>One edit, strength 0.2</td><td class="num">0.243</td><td class="num">0</td></tr>
+      </tbody>
+      <caption><span class="fig-label">Table 1.</span> What the numbers are and where they come from.</caption>
+    </table>
+  </div>
+
+  <ul>
+    <li>Lists are plain <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</li>
+    <li>Keep items short, and use them for things that really are a list.</li>
+  </ul>
+
+  <section class="post-end">
+    <h2 id="references">References</h2>
+    <ul class="refs">
+      <li id="ref-example2026">First Author, Second Author and Third Author. 2026. <a href="https://example.org/">Title of the work</a>. Venue, pages <span class="nowrap">12–34</span>.</li>
+    </ul>
+  </section>
+
+</article>
+
+<nav class="wrap post-nav" aria-label="More posts">
+  <a href="../"><span class="dir">Blog</span>All posts</a>
+  <a class="next" href="../../"><span class="dir">Home</span>Geonwoo Bang</a>
+</nav>
+</main>
+
+<footer class="wrap site-foot">
+  <p>© 2026 Geonwoo Bang</p>
+</footer>
+</body>
+</html>
