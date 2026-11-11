@@ -4,7 +4,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-11-11T08:04:56.277057</dc:date>
+    <dc:date>2026-11-11T09:52:54.139170</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -38,7 +38,7 @@ Q 219 492 219 480
 L 219 226 
 Q 219 214 231 214 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #f3f4f6"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3"/>
    </g>
    <g id="patch_3">
     <path d="M 19 34 
@@ -51,7 +51,7 @@ Q 12 72 12 65
 L 12 41 
 Q 12 34 19 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 91 34 
@@ -64,7 +64,7 @@ Q 84 72 84 65
 L 84 41 
 Q 84 34 91 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 163 34 
@@ -77,7 +77,7 @@ Q 156 72 156 65
 L 156 41 
 Q 156 34 163 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_6">
     <path d="M 235 34 
@@ -90,7 +90,7 @@ Q 228 72 228 65
 L 228 41 
 Q 228 34 235 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_7">
     <path d="M 307 34 
@@ -103,7 +103,7 @@ Q 300 72 300 65
 L 300 41 
 Q 300 34 307 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_8">
     <path d="M 379 34 
@@ -116,7 +116,7 @@ Q 372 72 372 65
 L 372 41 
 Q 372 34 379 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_9">
     <path d="M 451 34 
@@ -129,7 +129,7 @@ Q 444 72 444 65
 L 444 41 
 Q 444 34 451 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_10">
     <path d="M 523 34 
@@ -142,7 +142,7 @@ Q 516 72 516 65
 L 516 41 
 Q 516 34 523 34 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_11">
     <path d="M 22 84 
@@ -155,7 +155,7 @@ Q 12 134 12 124
 L 12 94 
 Q 12 84 22 84 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #fff2df; stroke: #d9770b; stroke-width: 1.5; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #fff2df; stroke: #d9770b; stroke-width: 1.5; stroke-linejoin: miter"/>
    </g>
    <g id="patch_12">
     <path d="M 17 146 
@@ -168,7 +168,7 @@ Q 12 190 12 185
 L 12 151 
 Q 12 146 17 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_13">
     <path d="M 89 146 
@@ -181,7 +181,7 @@ Q 84 190 84 185
 L 84 151 
 Q 84 146 89 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_14">
     <path d="M 161 146 
@@ -194,7 +194,7 @@ Q 156 190 156 185
 L 156 151 
 Q 156 146 161 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_15">
     <path d="M 233 146 
@@ -207,7 +207,7 @@ Q 228 190 228 185
 L 228 151 
 Q 228 146 233 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_16">
     <path d="M 305 146 
@@ -220,7 +220,7 @@ Q 300 190 300 185
 L 300 151 
 Q 300 146 305 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_17">
     <path d="M 377 146 
@@ -233,7 +233,7 @@ Q 372 190 372 185
 L 372 151 
 Q 372 146 377 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_18">
     <path d="M 449 146 
@@ -246,7 +246,7 @@ Q 444 190 444 185
 L 444 151 
 Q 444 146 449 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_19">
     <path d="M 521 146 
@@ -259,7 +259,7 @@ Q 516 190 516 185
 L 516 151 
 Q 516 146 521 146 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_20">
     <path d="M 233 272 
@@ -272,7 +272,7 @@ Q 228 302 228 297
 L 228 277 
 Q 228 272 233 272 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_21">
     <path d="M 305 272 
@@ -285,7 +285,7 @@ Q 300 302 300 297
 L 300 277 
 Q 300 272 305 272 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_22">
     <path d="M 377 272 
@@ -298,7 +298,7 @@ Q 372 302 372 297
 L 372 277 
 Q 372 272 377 272 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_23">
     <path d="M 449 272 
@@ -311,7 +311,7 @@ Q 444 302 444 297
 L 444 277 
 Q 444 272 449 272 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_24">
     <path d="M 521 272 
@@ -324,7 +324,7 @@ Q 516 302 516 297
 L 516 277 
 Q 516 272 521 272 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_25">
     <path d="M 233 309 
@@ -337,7 +337,7 @@ Q 228 339 228 334
 L 228 314 
 Q 228 309 233 309 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_26">
     <path d="M 305 309 
@@ -350,7 +350,7 @@ Q 300 339 300 334
 L 300 314 
 Q 300 309 305 309 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_27">
     <path d="M 377 309 
@@ -363,7 +363,7 @@ Q 372 339 372 334
 L 372 314 
 Q 372 309 377 309 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_28">
     <path d="M 449 309 
@@ -376,7 +376,7 @@ Q 444 339 444 334
 L 444 314 
 Q 444 309 449 309 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_29">
     <path d="M 521 309 
@@ -389,7 +389,7 @@ Q 516 339 516 334
 L 516 314 
 Q 516 309 521 309 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_30">
     <path d="M 233 346 
@@ -402,7 +402,7 @@ Q 228 376 228 371
 L 228 351 
 Q 228 346 233 346 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_31">
     <path d="M 305 346 
@@ -415,7 +415,7 @@ Q 300 376 300 371
 L 300 351 
 Q 300 346 305 346 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_32">
     <path d="M 377 346 
@@ -428,7 +428,7 @@ Q 372 376 372 371
 L 372 351 
 Q 372 346 377 346 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_33">
     <path d="M 449 346 
@@ -441,7 +441,7 @@ Q 444 376 444 371
 L 444 351 
 Q 444 346 449 346 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_34">
     <path d="M 521 346 
@@ -454,7 +454,7 @@ Q 516 376 516 371
 L 516 351 
 Q 516 346 521 346 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_35">
     <path d="M 233 383 
@@ -467,7 +467,7 @@ Q 228 413 228 408
 L 228 388 
 Q 228 383 233 383 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_36">
     <path d="M 305 383 
@@ -480,7 +480,7 @@ Q 300 413 300 408
 L 300 388 
 Q 300 383 305 383 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_37">
     <path d="M 377 383 
@@ -493,7 +493,7 @@ Q 372 413 372 408
 L 372 388 
 Q 372 383 377 383 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_38">
     <path d="M 449 383 
@@ -506,7 +506,7 @@ Q 444 413 444 408
 L 444 388 
 Q 444 383 449 383 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #b9bec5; stroke-width: 1.2; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #c4c4c4; stroke-width: 1.2; stroke-linejoin: miter"/>
    </g>
    <g id="patch_39">
     <path d="M 233 450 
@@ -519,7 +519,7 @@ Q 228 480 228 475
 L 228 455 
 Q 228 450 233 450 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_40">
     <path d="M 305 450 
@@ -532,7 +532,7 @@ Q 300 480 300 475
 L 300 455 
 Q 300 450 305 450 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_41">
     <path d="M 377 450 
@@ -545,7 +545,7 @@ Q 372 480 372 475
 L 372 455 
 Q 372 450 377 450 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_42">
     <path d="M 449 450 
@@ -558,7 +558,7 @@ Q 444 480 444 475
 L 444 455 
 Q 444 450 449 450 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_43">
     <path d="M 521 450 
@@ -571,7 +571,7 @@ Q 516 480 516 475
 L 516 455 
 Q 516 450 521 450 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #ffffff; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #ffffff; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_44">
     <path d="M 19 518 
@@ -584,7 +584,7 @@ Q 12 556 12 549
 L 12 525 
 Q 12 518 19 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_45">
     <path d="M 91 518 
@@ -597,7 +597,7 @@ Q 84 556 84 549
 L 84 525 
 Q 84 518 91 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_46">
     <path d="M 163 518 
@@ -610,7 +610,7 @@ Q 156 556 156 549
 L 156 525 
 Q 156 518 163 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_47">
     <path d="M 235 518 
@@ -623,7 +623,7 @@ Q 228 556 228 549
 L 228 525 
 Q 228 518 235 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_48">
     <path d="M 307 518 
@@ -636,7 +636,7 @@ Q 300 556 300 549
 L 300 525 
 Q 300 518 307 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_49">
     <path d="M 379 518 
@@ -649,7 +649,7 @@ Q 372 556 372 549
 L 372 525 
 Q 372 518 379 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_50">
     <path d="M 451 518 
@@ -662,7 +662,7 @@ Q 444 556 444 549
 L 444 525 
 Q 444 518 451 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="patch_51">
     <path d="M 523 518 
@@ -675,317 +675,317 @@ Q 516 556 516 549
 L 516 525 
 Q 516 518 523 518 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #e4eefa; stroke: #2c6cb0; stroke-width: 1.6; stroke-linejoin: miter"/>
+" clip-path="url(#pf56291366a)" style="fill: #f3f3f3; stroke: #111111; stroke-width: 1.6; stroke-linejoin: miter"/>
    </g>
    <g id="line2d_1">
     <path d="M 259 190 
 L 259 200 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: square"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: square"/>
    </g>
    <g id="line2d_2">
     <path d="M 331 190 
 L 331 200 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: square"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: square"/>
    </g>
    <g id="line2d_3">
     <path d="M 403 190 
 L 403 200 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: square"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: square"/>
    </g>
    <g id="line2d_4">
     <path d="M 475 190 
 L 475 200 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: square"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: square"/>
    </g>
    <g id="line2d_5">
     <path d="M 547 190 
 L 547 200 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: square"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: square"/>
    </g>
    <g id="line2d_6">
     <path d="M 259 200 
 L 547 200 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_52">
     <path d="M 403 200 
 Q 403 206.5 403 211.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 405.2 207.146556 
 L 403 211.546556 
 L 400.8 207.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #8b929b; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #8a8a8a; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_53">
     <path d="M 43 192 
 Q 43 354.5 43 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 45.2 511.146556 
 L 43 515.546556 
 L 40.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #8b929b; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #8a8a8a; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_54">
     <path d="M 115 192 
 Q 115 354.5 115 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 117.2 511.146556 
 L 115 515.546556 
 L 112.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #8b929b; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #8a8a8a; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_55">
     <path d="M 187 192 
 Q 187 354.5 187 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 189.2 511.146556 
 L 187 515.546556 
 L 184.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #8b929b; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #8a8a8a; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_56">
     <path d="M 259 482 
 Q 259 499.5 259 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 261.2 511.146556 
 L 259 515.546556 
 L 256.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #2c6cb0; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #111111; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_57">
     <path d="M 331 482 
 Q 331 499.5 331 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 333.2 511.146556 
 L 331 515.546556 
 L 328.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #2c6cb0; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #111111; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_58">
     <path d="M 403 482 
 Q 403 499.5 403 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 405.2 511.146556 
 L 403 515.546556 
 L 400.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #2c6cb0; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #111111; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_59">
     <path d="M 475 482 
 Q 475 499.5 475 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 477.2 511.146556 
 L 475 515.546556 
 L 472.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #2c6cb0; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #111111; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="patch_60">
     <path d="M 547 482 
 Q 547 499.5 547 515.546556 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 549.2 511.146556 
 L 547 515.546556 
 L 544.8 511.146556 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #2c6cb0; stroke: #2c6cb0; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #111111; stroke: #111111; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="line2d_7">
     <path d="M 580 537 
 L 602 537 
 L 602 53 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: square"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: square"/>
    </g>
    <g id="patch_61">
     <path d="M 602 53 
 Q 591.5 53 582.453444 53 
-" clip-path="url(#p88dd391c90)" style="fill: none; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: none; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
     <path d="M 586.853444 55.2 
 L 582.453444 53 
 L 586.853444 50.8 
 z
-" clip-path="url(#p88dd391c90)" style="fill: #8b929b; stroke: #8b929b; stroke-width: 1.3; stroke-linecap: round"/>
+" clip-path="url(#pf56291366a)" style="fill: #8a8a8a; stroke: #8a8a8a; stroke-width: 1.3; stroke-linecap: round"/>
    </g>
    <g id="text_1">
-    <text style="font-weight: 700; font-size: 17px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: start; fill: #1b1d21" x="12" y="24.41668" transform="rotate(-0 12 24.41668)">Generation 50: 8 robots</text>
+    <text style="font-weight: 700; font-size: 17px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: start; fill: #111111" x="12" y="24.41668" transform="rotate(-0 12 24.41668)">Generation 50: 8 robots</text>
    </g>
    <g id="text_2">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="43" y="56.896484" transform="rotate(-0 43 56.896484)">JA44</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="43" y="56.896484" transform="rotate(-0 43 56.896484)">JA44</text>
    </g>
    <g id="text_3">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="115" y="56.896484" transform="rotate(-0 115 56.896484)">YF79</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="115" y="56.896484" transform="rotate(-0 115 56.896484)">YF79</text>
    </g>
    <g id="text_4">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="187" y="56.896484" transform="rotate(-0 187 56.896484)">HW19</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="187" y="56.896484" transform="rotate(-0 187 56.896484)">HW19</text>
    </g>
    <g id="text_5">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="56.896484" transform="rotate(-0 259 56.896484)">FA85</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="56.896484" transform="rotate(-0 259 56.896484)">FA85</text>
    </g>
    <g id="text_6">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="56.896484" transform="rotate(-0 331 56.896484)">VK66</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="56.896484" transform="rotate(-0 331 56.896484)">VK66</text>
    </g>
    <g id="text_7">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="56.896484" transform="rotate(-0 403 56.896484)">DD15</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="56.896484" transform="rotate(-0 403 56.896484)">DD15</text>
    </g>
    <g id="text_8">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="56.896484" transform="rotate(-0 475 56.896484)">NX74</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="56.896484" transform="rotate(-0 475 56.896484)">NX74</text>
    </g>
    <g id="text_9">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="56.896484" transform="rotate(-0 547 56.896484)">ZV79</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="56.896484" transform="rotate(-0 547 56.896484)">ZV79</text>
    </g>
    <g id="text_10">
-    <text style="font-weight: 700; font-size: 16px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="295" y="105.156875" transform="rotate(-0 295 105.156875)">Exam: 64 new joystick episodes</text>
+    <text style="font-weight: 700; font-size: 16px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="295" y="105.156875" transform="rotate(-0 295 105.156875)">Exam: 64 new joystick episodes</text>
    </g>
    <g id="text_11">
-    <text style="font-size: 13.5px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #5b626b" x="295" y="123.507363" transform="rotate(-0 295 123.507363)">score card: velocity error in m/s, lower is better</text>
+    <text style="font-size: 13.5px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #474747" x="295" y="123.507363" transform="rotate(-0 295 123.507363)">score card: velocity error in m/s, lower is better</text>
    </g>
    <g id="text_12">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="43" y="171.896484" transform="rotate(-0 43 171.896484)">0.237</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="43" y="171.896484" transform="rotate(-0 43 171.896484)">0.237</text>
    </g>
    <g id="text_13">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="115" y="171.896484" transform="rotate(-0 115 171.896484)">0.240</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="115" y="171.896484" transform="rotate(-0 115 171.896484)">0.240</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="187" y="171.896484" transform="rotate(-0 187 171.896484)">0.243</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="187" y="171.896484" transform="rotate(-0 187 171.896484)">0.243</text>
    </g>
    <g id="text_15">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="165.896484" transform="rotate(-0 259 165.896484)">0.248</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="165.896484" transform="rotate(-0 259 165.896484)">0.248</text>
    </g>
    <g id="text_16">
-    <text style="font-size: 11.5px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #5b626b" x="259" y="181.987754" transform="rotate(-0 259 181.987754)">fell once</text>
+    <text style="font-size: 11.5px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #474747" x="259" y="181.987754" transform="rotate(-0 259 181.987754)">fell once</text>
    </g>
    <g id="text_17">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="165.896484" transform="rotate(-0 331 165.896484)">0.239</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="165.896484" transform="rotate(-0 331 165.896484)">0.239</text>
    </g>
    <g id="text_18">
-    <text style="font-size: 11.5px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #5b626b" x="331" y="181.987754" transform="rotate(-0 331 181.987754)">fell once</text>
+    <text style="font-size: 11.5px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #474747" x="331" y="181.987754" transform="rotate(-0 331 181.987754)">fell once</text>
    </g>
    <g id="text_19">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="171.896484" transform="rotate(-0 403 171.896484)">0.244</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="171.896484" transform="rotate(-0 403 171.896484)">0.244</text>
    </g>
    <g id="text_20">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="171.896484" transform="rotate(-0 475 171.896484)">0.243</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="171.896484" transform="rotate(-0 475 171.896484)">0.243</text>
    </g>
    <g id="text_21">
-    <text style="font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="171.896484" transform="rotate(-0 547 171.896484)">0.240</text>
+    <text style="font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="171.896484" transform="rotate(-0 547 171.896484)">0.240</text>
    </g>
    <g id="text_22">
-    <text style="font-weight: 700; font-size: 17px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="238.41668" transform="rotate(-0 403 238.41668)">Astra writes 24 trial robots</text>
+    <text style="font-weight: 700; font-size: 17px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="238.41668" transform="rotate(-0 403 238.41668)">Astra writes 24 trial robots</text>
    </g>
    <g id="text_23">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #5b626b" x="403" y="257.637266" transform="rotate(-0 403 257.637266)">(edits to the weights) and sees their scores</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #474747" x="403" y="257.637266" transform="rotate(-0 403 257.637266)">(edits to the weights) and sees their scores</text>
    </g>
    <g id="text_24">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="290.636719" transform="rotate(-0 259 290.636719)">0.230</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="290.636719" transform="rotate(-0 259 290.636719)">0.230</text>
    </g>
    <g id="text_25">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="290.636719" transform="rotate(-0 331 290.636719)">0.231</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="290.636719" transform="rotate(-0 331 290.636719)">0.231</text>
    </g>
    <g id="text_26">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="290.636719" transform="rotate(-0 403 290.636719)">0.233</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="290.636719" transform="rotate(-0 403 290.636719)">0.233</text>
    </g>
    <g id="text_27">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="290.636719" transform="rotate(-0 475 290.636719)">0.233</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="290.636719" transform="rotate(-0 475 290.636719)">0.233</text>
    </g>
    <g id="text_28">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="290.636719" transform="rotate(-0 547 290.636719)">0.234</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="290.636719" transform="rotate(-0 547 290.636719)">0.234</text>
    </g>
    <g id="text_29">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="327.636719" transform="rotate(-0 259 327.636719)">0.234</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="327.636719" transform="rotate(-0 259 327.636719)">0.234</text>
    </g>
    <g id="text_30">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="327.636719" transform="rotate(-0 331 327.636719)">0.236</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="327.636719" transform="rotate(-0 331 327.636719)">0.236</text>
    </g>
    <g id="text_31">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="327.636719" transform="rotate(-0 403 327.636719)">0.236</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="327.636719" transform="rotate(-0 403 327.636719)">0.236</text>
    </g>
    <g id="text_32">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="327.636719" transform="rotate(-0 475 327.636719)">0.237</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="327.636719" transform="rotate(-0 475 327.636719)">0.237</text>
    </g>
    <g id="text_33">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="327.636719" transform="rotate(-0 547 327.636719)">0.238</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="327.636719" transform="rotate(-0 547 327.636719)">0.238</text>
    </g>
    <g id="text_34">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="364.636719" transform="rotate(-0 259 364.636719)">0.239</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="364.636719" transform="rotate(-0 259 364.636719)">0.239</text>
    </g>
    <g id="text_35">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="364.636719" transform="rotate(-0 331 364.636719)">0.240</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="364.636719" transform="rotate(-0 331 364.636719)">0.240</text>
    </g>
    <g id="text_36">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="364.636719" transform="rotate(-0 403 364.636719)">0.240</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="364.636719" transform="rotate(-0 403 364.636719)">0.240</text>
    </g>
    <g id="text_37">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="364.636719" transform="rotate(-0 475 364.636719)">0.242</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="364.636719" transform="rotate(-0 475 364.636719)">0.242</text>
    </g>
    <g id="text_38">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="364.636719" transform="rotate(-0 547 364.636719)">0.243</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="364.636719" transform="rotate(-0 547 364.636719)">0.243</text>
    </g>
    <g id="text_39">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="401.636719" transform="rotate(-0 259 401.636719)">0.243</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="401.636719" transform="rotate(-0 259 401.636719)">0.243</text>
    </g>
    <g id="text_40">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="401.636719" transform="rotate(-0 331 401.636719)">0.244</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="401.636719" transform="rotate(-0 331 401.636719)">0.244</text>
    </g>
    <g id="text_41">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="401.636719" transform="rotate(-0 403 401.636719)">0.245</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="401.636719" transform="rotate(-0 403 401.636719)">0.245</text>
    </g>
    <g id="text_42">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="401.636719" transform="rotate(-0 475 401.636719)">0.246</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="401.636719" transform="rotate(-0 475 401.636719)">0.246</text>
    </g>
    <g id="text_43">
-    <text style="font-weight: 700; font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #2c6cb0" x="403" y="437.637266" transform="rotate(-0 403 437.637266)">5 of the best become new robots</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="437.637266" transform="rotate(-0 403 437.637266)">5 of the best become new robots</text>
    </g>
    <g id="text_44">
-    <text style="font-weight: 700; font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="468.636719" transform="rotate(-0 259 468.636719)">0.226</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="468.636719" transform="rotate(-0 259 468.636719)">0.226</text>
    </g>
    <g id="text_45">
-    <text style="font-weight: 700; font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="468.636719" transform="rotate(-0 331 468.636719)">0.227</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="468.636719" transform="rotate(-0 331 468.636719)">0.227</text>
    </g>
    <g id="text_46">
-    <text style="font-weight: 700; font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="468.636719" transform="rotate(-0 403 468.636719)">0.228</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="468.636719" transform="rotate(-0 403 468.636719)">0.228</text>
    </g>
    <g id="text_47">
-    <text style="font-weight: 700; font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="468.636719" transform="rotate(-0 475 468.636719)">0.230</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="468.636719" transform="rotate(-0 475 468.636719)">0.230</text>
    </g>
    <g id="text_48">
-    <text style="font-weight: 700; font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="468.636719" transform="rotate(-0 547 468.636719)">0.232</text>
+    <text style="font-weight: 700; font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="468.636719" transform="rotate(-0 547 468.636719)">0.232</text>
    </g>
    <g id="text_49">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="43" y="540.896484" transform="rotate(-0 43 540.896484)">JA44</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="43" y="540.896484" transform="rotate(-0 43 540.896484)">JA44</text>
    </g>
    <g id="text_50">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="115" y="540.896484" transform="rotate(-0 115 540.896484)">YF79</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="115" y="540.896484" transform="rotate(-0 115 540.896484)">YF79</text>
    </g>
    <g id="text_51">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="187" y="540.896484" transform="rotate(-0 187 540.896484)">HW19</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="187" y="540.896484" transform="rotate(-0 187 540.896484)">HW19</text>
    </g>
    <g id="text_52">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="259" y="540.896484" transform="rotate(-0 259 540.896484)">AT71</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="259" y="540.896484" transform="rotate(-0 259 540.896484)">AT71</text>
    </g>
    <g id="text_53">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="331" y="540.896484" transform="rotate(-0 331 540.896484)">PL82</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="331" y="540.896484" transform="rotate(-0 331 540.896484)">PL82</text>
    </g>
    <g id="text_54">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="403" y="540.896484" transform="rotate(-0 403 540.896484)">YM77</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="403" y="540.896484" transform="rotate(-0 403 540.896484)">YM77</text>
    </g>
    <g id="text_55">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="475" y="540.896484" transform="rotate(-0 475 540.896484)">VW65</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="475" y="540.896484" transform="rotate(-0 475 540.896484)">VW65</text>
    </g>
    <g id="text_56">
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="547" y="540.896484" transform="rotate(-0 547 540.896484)">XU56</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="547" y="540.896484" transform="rotate(-0 547 540.896484)">XU56</text>
    </g>
    <g id="text_57">
-    <text style="font-weight: 700; font-size: 17px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: start; fill: #1b1d21" x="12" y="584.41668" transform="rotate(-0 12 584.41668)">Generation 51: 3 kept + 5 new robots</text>
+    <text style="font-weight: 700; font-size: 17px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: start; fill: #111111" x="12" y="584.41668" transform="rotate(-0 12 584.41668)">Generation 51: 3 kept + 5 new robots</text>
    </g>
    <g id="text_58">
-    <text style="font-size: 14px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; fill: #5b626b" transform="translate(617.637266 401.405469) rotate(-90)">repeat for the next generation</text>
+    <text style="font-size: 14px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; fill: #474747" transform="translate(617.637266 401.405469) rotate(-90)">repeat for the next generation</text>
    </g>
    <g id="text_59">
     <g id="patch_62">
@@ -1001,12 +1001,12 @@ Q 51.905078 366.750586 57.155078 366.750586
 z
 " style="fill: #ffffff"/>
     </g>
-    <text style="font-weight: 700; font-size: 15px; font-family: IBM Plex Sans, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #1b1d21" x="115" y="357.89707" transform="rotate(-0 115 357.89707)">Astra keeps 3</text>
+    <text style="font-weight: 700; font-size: 15px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif; text-anchor: middle; fill: #111111" x="115" y="357.89707" transform="rotate(-0 115 357.89707)">Astra keeps 3</text>
    </g>
   </g>
  </g>
  <defs>
-  <clipPath id="p88dd391c90">
+  <clipPath id="pf56291366a">
    <rect x="0" y="0" width="632" height="600"/>
   </clipPath>
  </defs>

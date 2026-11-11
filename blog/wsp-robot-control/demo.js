@@ -7,8 +7,8 @@
   "use strict";
   const BASE = new URL(".", (document.currentScript && document.currentScript.src) || location.href).href;
   const GENS = [0, 10, 28, 51, 61, 78, 90, 99], START_GEN = 99;
-  const COL = {ink: "#16181c", ink2: "#474c55", muted: "#6b717b", grid: "#e4e7eb", blue: "#1e4f91", cmd: "#c45a00", zero: "#8d939c", bg: "#fbfbfc"};
-  const SANS = '"IBM Plex Sans", system-ui, sans-serif';
+  const COL = {ink: "#111111", ink2: "#474747", muted: "#696969", grid: "#e2e2e2", blue: "#111111", cmd: "#c45a00", zero: "#8f8f8f", bg: "#fbfbfb"};
+  const SANS = '"Schibsted Grotesk", system-ui, sans-serif';
 
   const el = (tag, attrs = {}, ...kids) => {
     const e = document.createElement(tag);
@@ -212,7 +212,7 @@
     const playhead = () => {
       if (!chartReady || !S.d) return;
       const g = ch.getContext("2d"); g.setTransform(1, 0, 0, 1, 0, 0); g.drawImage(chartImg, 0, 0); g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const x = Math.round(cX(clamp(S.t / S.dt, 0, S.N - 1))) + 0.5; g.strokeStyle = "rgba(22,24,28,.55)"; g.lineWidth = 1; g.beginPath(); g.moveTo(x, 2); g.lineTo(x, TOP + 3 * RH); g.stroke();
+      const x = Math.round(cX(clamp(S.t / S.dt, 0, S.N - 1))) + 0.5; g.strokeStyle = "rgba(17,17,17,.55)"; g.lineWidth = 1; g.beginPath(); g.moveTo(x, 2); g.lineTo(x, TOP + 3 * RH); g.stroke();
     };
 
     // ---- input: drag the 3D view sideways to orbit (vertical swipes still scroll the page); tap or drag the chart to move in time ----

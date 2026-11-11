@@ -12,7 +12,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2316181c'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Helvetica%2CArial%2Csans-serif' font-size='38' font-weight='600' fill='%23ffffff'%3EG%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400..600&amp;family=Schibsted+Grotesk:ital,wght@0,400..800;1,400..700&amp;display=swap">
   <link rel="stylesheet" href="assets/site.css">
   <script src="assets/site.js" defer></script>
 </head>
@@ -32,7 +32,7 @@
   <!-- render:intro -->
   <header class="intro" data-render="intro"><h1>Geonwoo Bang</h1>
 <p class="dek">Building trustworthy recommenders and LLM agents.</p>
-<p class="bio">I am an MSc student in Data Science at ETH Zürich. I graduated summa cum laude from Sungkyunkwan University with a triple degree in Computer Science &amp; Engineering, Statistics, and Computer Education. My research spans recommender systems, fairness and robustness, explainable AI, and LLM-based agents.</p>
+<p class="bio">I am an MSc student in Data Science at ETH Zürich. I graduated summa cum laude from Sungkyunkwan University with a triple degree in Computer Science &amp; Engineering, Statistics, and Computer Education. My research spans recommender systems, fairness and robustness, explainable AI, and LLM-⁠based agents.</p>
 <ul class="contact">
 <li><a href="mailto:g7199@g.skku.edu">g7199@g.skku.edu</a></li>
 <li><a href="https://www.linkedin.com/in/g7199/">LinkedIn</a></li>
@@ -58,6 +58,8 @@
 <p class="plan-text">Most LLM personas describe one imagined person, with a name, an age and a backstory. That works for a single conversation, but it does not scale to experiments that need thousands of users whose tastes vary the way real populations do. I want to build personas for groups, describing how preferences and behavior are spread across a group instead of one typical member, so they can be used in large-scale experiments.</p></li>
 <li><h3 class="plan-title">LLM simulation for recommendation</h3>
 <p class="plan-text">On top of group-level personas, I want to use LLM simulation to evaluate many kinds of recommendation tasks without people in the loop. A simulated evaluation is only worth running if it reaches the same conclusions real users would, so for each task I want to measure that agreement before trusting the simulation.</p></li>
+<li><h3 class="plan-title">Motion generation and control</h3>
+<p class="plan-text">I worked on character animation in a graphics lab, from motion matching with capture data to compressing motion with diffusion models and reinforcement learning, and more recently on robot controllers that an LLM writes weight by weight. I want to keep working on motion that looks natural and responds to control, for animated characters and for robots alike.</p></li>
 <li><h3 class="plan-title">Personalized LLMs</h3>
 <p class="plan-text">Most LLMs treat every user the same until the user restates their preferences in the prompt. I want models that learn what a person cares about from ordinary use and keep that knowledge in a form the person can read and correct. Preferences also drift, so the model should notice when its picture of someone has gone stale.</p></li></ul>
     <!-- /render:research -->
@@ -77,14 +79,14 @@
     <h2>Publications</h2>
     <!-- render:publications -->
     <ol class="list pubs" data-render="publications"><li class="pub"><h3 class="pub-title">Propensity-Weighted Reflection for Recovering Poisoned Recommenders under Partial Identification</h3>
-<p class="pub-authors"><span class="me">Geonwoo Bang</span>, et al.</p>
+<p class="pub-authors"><span class="me">Geonwoo Bang</span>, Juyoung Seo, Dongho Kim, Geonwoo Kim, Moohong Min</p>
 <input class="more-toggle" type="checkbox" id="abs-0">
 <p class="pub-meta"><span class="venue">WSDM 2027, accepted</span>
 <label class="more" for="abs-0">Abstract</label></p>
 <div class="more-body"><a href="content/images/pwr-overview.png"><img src="content/images/pwr-overview.png" alt="Overview figure" loading="lazy"></a>
 <p>Recommender systems are vulnerable to data poisoning, while defenses act primarily before or during training. We study post-training recovery when a detector flags only some injected fake profiles. Retraining on the partially cleaned data leaves most of the attack in place. The recovery target uses a propensity correction that subtracts each caught fake in proportion to the detection rate and accounts in expectation for poison missed by the detector. The resulting negative weights can make the training objective indefinite and the solve unstable. We propose Mirror, which deletes each caught interaction and re-inserts a reflection based on the model’s prediction with positive weight. This realizes the correction as reflected training data, leaves the model’s native trainer unchanged, and avoids the indefinite signed formulation. The construction requires a loss with an invertible label map and is instantiated for matrix factorization, graph, and sequential recommenders. For squared error, each round provably reduces the debiased objective. Mirror estimates the missed rate from the attack footprint and each flag’s reliability from the detector posterior, so the same correction handles both detector errors. Against a real detector not developed by the authors and an attacker that obfuscates its profiles, Mirror outperforms retraining in all three model families, with the largest advantage under partial detection, while preserving recommendation quality for genuine users. Controlled sweeps of the identification rate isolate the mechanism: Mirror removes the attack where retraining does not, across eleven datasets and three model families.</p></div></li>
 <li class="pub"><h3 class="pub-title">Whose Fairness? Auditing Exposure Fairness When AI Agents Read Rankings</h3>
-<p class="pub-authors">J. Seo, <span class="me">Geonwoo Bang</span>, et al.</p>
+<p class="pub-authors">Juyoung Seo, <span class="me">Geonwoo Bang</span>, Dongho Kim, Moohong Min</p>
 <input class="more-toggle" type="checkbox" id="abs-1">
 <p class="pub-meta"><span class="venue">WSDM 2027, accepted</span>
 <label class="more" for="abs-1">Abstract</label></p>
@@ -93,7 +95,7 @@
 <li class="pub"><h3 class="pub-title">EVOL: Simulator-Guided Evolutionary Expert Synthesis for Deployment-Free Learning Path Recommendation</h3>
 <p class="pub-authors"><span class="me">Geonwoo Bang</span>, Dongho Kim, Moohong Min</p>
 <input class="more-toggle" type="checkbox" id="abs-2">
-<p class="pub-meta"><span class="venue">CIKM 2026, accepted</span>
+<p class="pub-meta"><span class="venue">CIKM 2026</span>
 <a href="https://arxiv.org/pdf/2610.03273">PDF</a>
 <a href="https://arxiv.org/abs/2610.03273">arXiv</a>
 <label class="more" for="abs-2">Abstract</label></p>
@@ -114,8 +116,9 @@
 <input class="more-toggle" type="checkbox" id="abs-4">
 <p class="pub-meta"><span class="venue">PAKDD 2026</span>
 <a href="https://doi.org/10.1007/978-981-92-1947-6_42">DOI</a>
-<label class="more" for="abs-4">Figure</label></p>
-<div class="more-body"><a href="content/images/pii-overview.svg"><img src="content/images/pii-overview.svg" alt="Overview figure" loading="lazy"></a></div></li>
+<label class="more" for="abs-4">Abstract</label></p>
+<div class="more-body"><a href="content/images/pii-overview.svg"><img src="content/images/pii-overview.svg" alt="Overview figure" loading="lazy"></a>
+<p>The definition of Personally Identifiable Information (PII) is fluid across legal jurisdictions and domain-specific schemas. Consequently, static Named Entity Recognition (NER) models often become brittle on heterogeneous datasets, while monolithic prompts suffer from attention degradation and hallucination when extracting extensive entity taxonomies. In this work, we propose a novel framework that reframes PII detection as a dynamic alignment problem rather than a static classification task. Our system features a Schema-Agnostic Orchestrator that dynamically decomposes target labels into semantic clusters, coupled with an Evolutionary Prompt Optimizer that automates the refinement of agent instructions using k-shot feedback. Furthermore, we integrate an uncertainty-aware debate protocol to resolve inter-agent conflicts through deliberative reasoning. Experiments on Nemotron-PII, AI4Privacy benchmarks (pii-masking-200k and open-pii-masking-500k) demonstrate that our adaptive system achieves competitive or superior performance against larger static baselines despite its smaller parameter footprint, establishing a new state-of-the-art in zero-shot PII adaptation.</p></div></li>
 <li class="pub"><h3 class="pub-title">Transforming User-Defined Criteria into Explainable Indicators with an Integrated LLM-AHP System</h3>
 <p class="pub-authors"><span class="me">Geonwoo Bang</span>, Dongho Kim, Moohong Min</p>
 <input class="more-toggle" type="checkbox" id="abs-5">

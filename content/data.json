@@ -5,7 +5,7 @@
     "role": "MSc Student in Data Science",
     "affiliation": "ETH Zürich",
     "oneLiner": "Building trustworthy recommenders and LLM agents.",
-    "bio": "I am an MSc student in Data Science at ETH Zürich. I graduated summa cum laude from Sungkyunkwan University with a triple degree in Computer Science & Engineering, Statistics, and Computer Education. My research spans recommender systems, fairness and robustness, explainable AI, and LLM-based agents.",
+    "bio": "I am an MSc student in Data Science at ETH Zürich. I graduated summa cum laude from Sungkyunkwan University with a triple degree in Computer Science & Engineering, Statistics, and Computer Education. My research spans recommender systems, fairness and robustness, explainable AI, and LLM-⁠based agents.",
     "interests": [
       "Recommender Systems",
       "Trustworthy & Fair AI",
@@ -27,7 +27,10 @@
       "title": "Propensity-Weighted Reflection for Recovering Poisoned Recommenders under Partial Identification",
       "authors": [
         "Geonwoo Bang",
-        "et al."
+        "Juyoung Seo",
+        "Dongho Kim",
+        "Geonwoo Kim",
+        "Moohong Min"
       ],
       "venue": "WSDM 2027",
       "year": 2027,
@@ -48,9 +51,10 @@
       "id": "whose-fairness",
       "title": "Whose Fairness? Auditing Exposure Fairness When AI Agents Read Rankings",
       "authors": [
-        "J. Seo",
+        "Juyoung Seo",
         "Geonwoo Bang",
-        "et al."
+        "Dongho Kim",
+        "Moohong Min"
       ],
       "venue": "WSDM 2027",
       "year": 2027,
@@ -89,7 +93,7 @@
         "content/images/evol-overview.svg"
       ],
       "body": "## Abstract\nReinforcement learning (RL) for learning path recommendation (LPR) faces two coupled obstacles. First, the policy must commit to a sequence of L concepts without intermediate feedback, producing a combinatorial search space that grows super-exponentially with L and provides reward only at the final step. Second, expert learning paths would be the natural cure for sparse-reward RL, but they do not exist in educational data, because student logs record what learners did, not what they should have done. We address both obstacles by importing a recipe from simulator-based demonstration learning in robotics: the knowledge tracing simulator is used both to synthesize per-learner expert demonstrations through evolutionary search and to train a deployment-free policy that distills these demonstrations into a feed-forward learner. Our framework, EVOL, instantiates this pipeline with an asymmetric actor-critic where the actor commits to deployment-realistic blind planning while the critic exploits the privileged simulator state during training. Across three datasets (ASSIST15, Junyi, and EdNet; 39-189 concepts) and path lengths L = 5, 10, and 20, EVOL surpasses 8 baselines spanning heuristic, sequential, RL, graph-enhanced RL, and LLM-enhanced methods. We further compare three imitation strategies (BC, AWR, and DAPG) and show that final performance is governed by the quality of evolutionary experts rather than by the particular imitation objective.",
-      "status": "accepted"
+      "status": ""
     },
     {
       "id": "reforest",
@@ -139,7 +143,7 @@
       "images": [
         "content/images/pii-overview.svg"
       ],
-      "body": ""
+      "body": "## Abstract\nThe definition of Personally Identifiable Information (PII) is fluid across legal jurisdictions and domain-specific schemas. Consequently, static Named Entity Recognition (NER) models often become brittle on heterogeneous datasets, while monolithic prompts suffer from attention degradation and hallucination when extracting extensive entity taxonomies. In this work, we propose a novel framework that reframes PII detection as a dynamic alignment problem rather than a static classification task. Our system features a Schema-Agnostic Orchestrator that dynamically decomposes target labels into semantic clusters, coupled with an Evolutionary Prompt Optimizer that automates the refinement of agent instructions using k-shot feedback. Furthermore, we integrate an uncertainty-aware debate protocol to resolve inter-agent conflicts through deliberative reasoning. Experiments on Nemotron-PII, AI4Privacy benchmarks (pii-masking-200k and open-pii-masking-500k) demonstrate that our adaptive system achieves competitive or superior performance against larger static baselines despite its smaller parameter footprint, establishing a new state-of-the-art in zero-shot PII adaptation."
     },
     {
       "id": "llm-ahp",
@@ -273,6 +277,10 @@
     {
       "title": "LLM simulation for recommendation",
       "text": "On top of group-level personas, I want to use LLM simulation to evaluate many kinds of recommendation tasks without people in the loop. A simulated evaluation is only worth running if it reaches the same conclusions real users would, so for each task I want to measure that agreement before trusting the simulation."
+    },
+    {
+      "title": "Motion generation and control",
+      "text": "I worked on character animation in a graphics lab, from motion matching with capture data to compressing motion with diffusion models and reinforcement learning, and more recently on robot controllers that an LLM writes weight by weight. I want to keep working on motion that looks natural and responds to control, for animated characters and for robots alike."
     },
     {
       "title": "Personalized LLMs",
