@@ -156,6 +156,17 @@
 
   <p>FunSearch (<a class="cite-ref" href="#ref-romera2024">Romera-Paredes et al., 2024</a>) and AlphaEvolve (<a class="cite-ref" href="#ref-novikov2025">Novikov et al., 2025</a>) evolve programs with an LLM writing the changes. Evolution through Large Models (<a class="cite-ref" href="#ref-lehman2022">Lehman et al., 2022</a>) uses an LLM as the mutation step, and OPRO (<a class="cite-ref" href="#ref-yang2024">Yang et al., 2024</a>) has a model propose answers from a list of scored attempts. All of them give the loop a score. Eureka (<a class="cite-ref" href="#ref-ma2024">Ma et al., 2024</a>) and Language to Rewards (<a class="cite-ref" href="#ref-yu2023">Yu et al., 2023</a>) have the LLM write a reward that another method then maximizes. A separate line of work trains networks that make or read weights: HyperNetworks (<a class="cite-ref" href="#ref-ha2017">Ha et al., 2017</a>), G.pt (<a class="cite-ref" href="#ref-peebles2022">Peebles et al., 2022</a>) and neural functionals (<a class="cite-ref" href="#ref-zhou2023">Zhou et al., 2023</a>). We train nothing and give the loop no score to maximize. A general-purpose LLM writes the weights itself, as <a class="cite-ref" href="#ref-takehi2026">Takehi et al. (2026)</a> describe.</p>
 
+  <h2 id="limitations">Limitations</h2>
+
+  <ul>
+    <li><b>Simulation only.</b> We don't have a real Go1, so none of these controllers has run on hardware. We don't know yet how well they would hold up on a real robot.</li>
+    <li><b>Flat ground only.</b> The task is walking on a flat floor. Slopes, stairs and pushes are untested.</li>
+    <li><b>One run.</b> Everything here comes from a single run with one seed.</li>
+    <li><b>Astra still sees its errors.</b> There is no reward, but the report card does show how far each robot's speed is from the command, which is close to what the hidden test measures.</li>
+    <li><b>It is slow.</b> 100 generations took about a day, most of it spent waiting for the model to reply.</li>
+  </ul>
+
+
   <h2 id="next">Still running</h2>
 
   <p>This is one run with one seed. We are now running more seeds of the Go1 setup, and trying other robots with only a goal sentence. We are also letting runs go past 100 generations, and we will update this post as they finish.</p>
