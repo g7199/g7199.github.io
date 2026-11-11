@@ -426,7 +426,7 @@
   ],
   "posts": [
     {
-      "title": "Weight-Space Programming for Robot Control",
+      "title": "Weight-Space Programming from Zero for Robot Control",
       "date": "2026-11-11",
       "url": "blog/wsp-robot-control/",
       "summary": "No reward, only a goal sentence: over 100 generations GPT-6 Astra wrote a simulated Go1’s walking controller as plain numbers, starting from all zeros. Its velocity error on a hidden test fell from 0.797 to about 0.22 m/s."

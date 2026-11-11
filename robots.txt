@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /blog/_template/
+
+Sitemap: https://g7199.github.io/sitemap.xml

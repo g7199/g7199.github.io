@@ -66,7 +66,12 @@
       line("meas", "measured"));
     const keys = el("p", {class: "jd-keys", id: id + "-keys", text: "Keys: W A S D move, Q E turn, Space stops"});
     const live = el("p", {class: "jd-live", "aria-live": "polite"});
-    root.replaceChildren(stage, ctl, readout, keys, live);
+    // the sparse circuit under the 3D view (its data loads only when the figure comes near the viewport)
+    const circCv = el("canvas", {class: "jd-circ-cv", role: "img",
+      "aria-label": "The robot's neural network, layers of 56, 512, 256, 128 and 12 units from left to right. Only the non-zero weights are drawn; they light up with the network's activity as the robot walks."});
+    const circCap = el("p", {class: "jd-circ-cap"});
+    const circ = el("div", {class: "jd-circ"}, circCv, circCap);
+    root.replaceChildren(stage, circ, ctl, readout, keys, live);
 
     // ---- state ----
     const S = {L: null, ix: -1, iy: -1, iw: -1, cmd: [0, 0, 0], fell: false, prev: null, cur: null, w: 1, phase: 0, time: 0, acc: 0,
@@ -76,6 +81,22 @@
 
     Promise.all([getJSON(BASE + "data/joystick_lib.json"), loadThree()]).then(([L, THREE]) => init(L, THREE))
       .catch(() => { msg.textContent = "Could not load the 3D view. Reload the page to try again."; });
+
+    // the circuit's data: fetched once the figure is near the viewport; if anything fails, the strip goes away quietly
+    let circAsked = false;
+    const loadCirc = () => {
+      if (circAsked) return; circAsked = true;
+      const bin = fetch(BASE + "data/joystick_act.json").then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(j => { const t = atob(j.b64), u = new Uint8Array(t.length); for (let i = 0; i < t.length; i++) u[i] = t.charCodeAt(i); return u.buffer; });
+      Promise.all([getJSON(BASE + "data/joystick_net.json"), bin]).then(([N, buf]) => {
+        S.circ = sparseCircuit(circCv, circCap, N, new Uint8Array(buf), S);
+        if (S.draw && !S.running) S.draw();
+      }).catch(() => { S.circ = null; circ.hidden = true; });
+    };
+    if (window.IntersectionObserver) {
+      const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); loadCirc(); } }, {rootMargin: "800px 0px"});
+      io.observe(root);
+    } else loadCirc();
 
     function init(L, T3) {
       S.L = L;
@@ -92,9 +113,9 @@
       const stand = new Array(3 * NB).fill(0);
       zc.frames.forEach(f => f.forEach((v, k) => { stand[k] += v / zc.frames.length; }));
       for (let b = 0; b < NB; b++) if (!kids[b].length) stand[3 * b + 2] = Math.min(...zc.frames.map(f => f[3 * b + 2]));
-      const STILL = {frames: [stand], n: 1, meas: [0, 0, 0]};
+      const STILL = {frames: [stand], n: 1, meas: [0, 0, 0], ci: -1};
       const srcs = new Map();
-      const srcOf = c => { if (!srcs.has(c)) srcs.set(c, {frames: c.frames, n: c.frames.length, meas: c.meas}); return srcs.get(c); };
+      const srcOf = c => { if (!srcs.has(c)) srcs.set(c, {frames: c.frames, n: c.frames.length, meas: c.meas, ci: L.clips.indexOf(c)}); return srcs.get(c); };
       S.prev = S.cur = STILL;
       // the hips (children of the trunk) give the trunk its orientation: the library stores positions only
       const hips = kids[rootIdx], hx = b => stand[3 * b] - stand[3 * rootIdx], hy = b => stand[3 * b + 1] - stand[3 * rootIdx + 1];
@@ -319,6 +340,7 @@
         frame(h);
         grid.position.x = Math.round(S.camT.x); grid.position.z = Math.round(S.camT.z);
         renderer.render(scene, camera);
+        if (S.circ) S.circ(h);   // the circuit shows the same clip and phase as the robot
       };
 
       // ---- size: the page's proportions (wider than tall; taller on a phone) ----
@@ -355,6 +377,184 @@
       setCmd(start, j0, k0, false); S.prev = S.cur; S.w = 1;
       msg.hidden = true; resize(); draw(); wake();
     }
+  }
+
+  /* The sparse circuit: the network's five layers from left to right. Every unit is a faint dot (a layer wider than ROWS units
+     wraps into a block of columns, so its size shows as area); the units that touch a non-zero weight are darker dots; each
+     non-zero weight is a thin curve. Live, a curve lights green with |w| x |activity of its source unit| (each curve normalised by
+     its own largest value over the recorded clips) and a unit glows with its own |activity|.
+     Data: data/joystick_net.json (layout, weights) and data/joystick_act.json (base64 of uint8 [clip][frame][unit], unit = |v| / scale x 255).
+     The activity comes from a re-run of the same GPU simulation that made the frames in joystick_lib.json (make_lib_act.py): all 150 clips
+     reproduce the published frames exactly (max position difference 0), so each frame shows the activity that produced that pose.
+     Returns paint(h): draws the frame the robot is showing (S.prev, S.cur, S.w, S.phase); h = seconds since the last frame (0: no smoothing). */
+  function sparseCircuit(cv, cap, N, A, S) {
+    const ROWS = 64, NLEV = 7;
+    const Ls = N.layers, NLY = Ls.length, sizes = N.sizes;
+    const offs = Ls.map(l => l.unit_axis_offset), NU = offs[NLY - 1] + Ls[NLY - 1].used.length;
+    const NF = 25, NC = Math.floor(A.length / (NF * NU));
+    if (!NC || NC * NF * NU !== A.length) throw new Error("joystick_act.json");
+    const ax = Ls.map((l, li) => { const m = new Map(); l.used.forEach((u, k) => m.set(u, offs[li] + k)); return m; });
+    const layerOf = new Uint8Array(NU); Ls.forEach((l, li) => l.used.forEach((u, k) => { layerOf[offs[li] + k] = li; }));
+    const wcls = a => a < 0.5 ? 0 : a < 2 ? 1 : 2;   // three line widths by |w|
+    const E = [];
+    for (const [l, s, d, v] of N.weights) {
+      if (s < 0) continue;   // biases belong to their unit
+      const a = ax[l - 1].get(s), b = ax[l].get(d);
+      if (a != null && b != null) E.push([a, b, wcls(Math.abs(v))]);
+    }
+    const cols = sizes.map(n => Math.ceil(n / ROWS)), rows = sizes.map(n => Math.min(n, ROWS));
+
+    // grid cell (column, row) of every unit: inputs in their display order (unused ones included), outputs in joint order;
+    // in a hidden layer the used units keep their display order from top to bottom, spread over the block
+    const cell = new Int16Array(2 * NU);
+    Ls.forEach((l, li) => {
+      if (cols[li] === 1) {
+        const ord = l.all_order || l.used;
+        l.used.forEach((u, k) => { cell[2 * (offs[li] + k)] = 0; cell[2 * (offs[li] + k) + 1] = Math.max(0, ord.indexOf(u)); });
+        return;
+      }
+      const C = cols[li], R = rows[li], n = l.used.length, taken = new Uint8Array(C * R);
+      l.used.forEach((u, k) => {
+        const t = Math.min(R - 1, Math.floor((k + 0.5) * R / n)), pc = u % C;
+        for (let dd = 0; dd < R; dd++) {
+          let done = false;
+          for (const r of dd ? [t - dd, t + dd] : [t]) {
+            if (r < 0 || r >= R) continue;
+            for (let j = 0; j < C && !done; j++) { const c = (pc + j) % C; if (!taken[r * C + c]) { taken[r * C + c] = 1; cell[2 * (offs[li] + k)] = c; cell[2 * (offs[li] + k) + 1] = r; done = true; } }
+            if (done) break;
+          }
+          if (done) break;
+        }
+      });
+    });
+
+    const tot = N.totals || {}, fmt = v => Number(v).toLocaleString("en-US");
+    const pct = tot.all ? (100 * tot.nonzero / tot.all).toFixed(2) + "%" : "";
+    const num = t => el("span", {class: "jd-num", text: t});
+    cap.replaceChildren(num(fmt(tot.nonzero)), " of ", num(fmt(tot.all)), " weights are non-zero (", num(pct), "). Only those are drawn, lit by the robot’s real activity.");
+
+    // input group labels (only where they fit) and the layer sizes
+    const SHORT = {"command": "command", "clock features": "clock", "gyro": "gyro", "joint angles": "joint angles", "joint velocities": "joint vel.",
+      "last action": "last action", "linear velocity": "lin. vel.", "gravity": "gravity"};
+    const inOrd = Ls[0].all_order || [];
+    const groups = (N.input_groups || []).map(g => {
+      const rs = []; for (let i = g.lo; i < g.hi; i++) { const r = inOrd.indexOf(i); if (r >= 0) rs.push(r); }
+      return {name: SHORT[g.name] || g.name, used: g.used && g.used.length > 0, mid: rs.length ? (Math.min(...rs) + Math.max(...rs)) / 2 : -1};
+    }).filter(g => g.mid >= 0).sort((a, b) => a.mid - b.mid);
+
+    const ctx = cv.getContext("2d"), stat = document.createElement("canvas"), sx = stat.getContext("2d");
+    const css = getComputedStyle(cv);
+    const MONO = (css.getPropertyValue("--mono") || "").trim() || "\"JetBrains Mono\", ui-monospace, monospace";
+    let W = 0, H = 0, dpr = 1, P = 3, R0 = 1.1, gut = 0, dens = 1, amax = 0.3;
+    const X = new Float32Array(NU), Y = new Float32Array(NU), lx = [], top = [];
+    const layout = () => {
+      const narrow = W < 560;
+      gut = narrow ? 0 : 78;
+      const padT = 8, padB = 20, plotH = H - padT - padB;
+      P = plotH / (ROWS - 1); R0 = narrow ? 1 : 1.15;
+      const bw = cols.map(c => (c - 1) * P), L0 = gut + 4, R1 = W - 4;
+      const gap = (R1 - L0 - bw.reduce((a, b) => a + b, 0)) / (NLY - 1);
+      let x = L0;
+      for (let li = 0; li < NLY; li++) { lx[li] = x; top[li] = padT + (plotH - (rows[li] - 1) * P) / 2; x += bw[li] + gap; }
+      for (let u = 0; u < NU; u++) { const li = layerOf[u]; X[u] = lx[li] + cell[2 * u] * P; Y[u] = top[li] + cell[2 * u + 1] * P; }
+    };
+    const curve = (g, a, b) => { const x0 = X[a], y0 = Y[a], x1 = X[b], y1 = Y[b], m = (x1 - x0) * 0.5; g.moveTo(x0, y0); g.bezierCurveTo(x0 + m, y0, x1 - m, y1, x1, y1); };
+    const WIDTH = [0.45, 0.8, 1.25], WGAIN = [0.5, 0.75, 1], LO = 0.4;   // LO: below this part of its range a source leaves its curves quiet
+
+    const drawStatic = () => {
+      stat.width = cv.width; stat.height = cv.height;
+      sx.setTransform(dpr, 0, 0, dpr, 0, 0); sx.clearRect(0, 0, W, H);
+      // every unit, used or not
+      sx.fillStyle = "#d9d9d9";
+      for (let li = 0; li < NLY; li++) for (let k = 0; k < sizes[li]; k++) {
+        const c = Math.floor(k / rows[li]), r = k % rows[li];
+        sx.fillRect(lx[li] + c * P - 0.75, top[li] + r * P - 0.75, 1.5, 1.5);
+      }
+      // the non-zero weights, quiet
+      for (let w = 0; w < 3; w++) {
+        sx.beginPath(); for (const e of E) if (e[2] === w) curve(sx, e[0], e[1]);
+        sx.lineWidth = WIDTH[w]; sx.strokeStyle = `rgba(17,17,17,${(0.075 * dens).toFixed(3)})`; sx.stroke();
+      }
+      // the used units
+      sx.fillStyle = "#8f8f8f"; sx.beginPath();
+      for (let u = 0; u < NU; u++) { sx.moveTo(X[u] + R0, Y[u]); sx.arc(X[u], Y[u], R0, 0, 2 * Math.PI); }
+      sx.fill();
+      // labels
+      sx.font = "400 10px " + MONO; sx.textBaseline = "alphabetic";
+      sx.fillStyle = "#696969";
+      for (let li = 0; li < NLY; li++) {
+        const cx = lx[li] + (cols[li] - 1) * P / 2, t = String(sizes[li]), tw = sx.measureText(t).width;
+        sx.fillText(t, clamp(cx - tw / 2, 0, W - tw), H - 4);
+      }
+      if (gut) {
+        sx.textBaseline = "middle"; sx.textAlign = "right";
+        let last = -1e9;
+        for (const g of groups) {
+          const y = top[0] + g.mid * P;
+          if (y - last < 12.5) continue;
+          sx.fillStyle = g.used ? "#696969" : "#a8a8a8"; sx.fillText(g.name, lx[0] - 8, y); last = y;
+        }
+        sx.textAlign = "left";
+      }
+    };
+
+    const resize = () => {
+      const w = Math.round(cv.parentNode.clientWidth); if (!w) return false;
+      const h = w < 560 ? 210 : 260, d = Math.min(window.devicePixelRatio || 1, window.innerWidth < 640 ? 1.5 : 2);
+      if (w === W && h === H && d === dpr) return false;
+      W = w; H = h; dpr = d;
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); cv.style.height = H + "px";
+      dens = Math.sqrt(Math.min(1, W / 600)); amax = 0.3 * dens;   // a narrow strip packs the same curves closer: draw them lighter
+      layout(); drawStatic(); return true;
+    };
+
+    // activity of every unit in [0, 1], for a source (clip) at the robot's phase: frames interpolated as the robot's pose is
+    const val = new Float32Array(NU), tmp = new Float32Array(NU), shown = new Float32Array(NU);
+    const fill = (src, out) => {
+      out.fill(0);
+      if (!src || src.ci == null || src.ci < 0 || src.ci >= NC) return;
+      const n = Math.min(src.n, NF), dt = (S.L && S.L.dt) || 0.04, f = ((S.phase / dt) % n + n) % n, i = Math.floor(f) % n, a = f - Math.floor(f);
+      const o1 = (src.ci * NF + i) * NU, o2 = (src.ci * NF + (i + 1) % n) * NU;
+      for (let u = 0; u < NU; u++) out[u] = (A[o1 + u] * (1 - a) + A[o2 + u] * a) / 255;
+    };
+    // each unit's own range over all recorded frames: a curve is lit by where its source unit is within that range,
+    // so a unit that sits near the same value all the time (a saturated tanh) stays quiet and the changes show
+    const qlo = new Float32Array(NU).fill(1), qhi = new Float32Array(NU);
+    for (let o = 0; o < A.length; o += NU) for (let u = 0; u < NU; u++) { const q = A[o + u] / 255; if (q < qlo[u]) qlo[u] = q; if (q > qhi[u]) qhi[u] = q; }
+    const qsp = qhi.map((h, u) => Math.max(h - qlo[u], 0.3));
+    const bucketsE = Array.from({length: 3 * NLEV}, () => []), bucketsU = Array.from({length: NLEV}, () => []);
+    let started = false;
+    const paint = h => {
+      if (!W) resize(); if (!W) return;
+      fill(S.cur, val);
+      if (S.w < 1) { fill(S.prev, tmp); for (let u = 0; u < NU; u++) val[u] = tmp[u] + (val[u] - tmp[u]) * S.w; }
+      const k = started && h > 0 ? 1 - Math.exp(-h / 0.035) : 1; started = true;
+      for (let u = 0; u < NU; u++) shown[u] += (val[u] - shown[u]) * k;
+      ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height); ctx.drawImage(stat, 0, 0);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      for (const b of bucketsE) b.length = 0;
+      for (const b of bucketsU) b.length = 0;
+      for (let j = 0; j < E.length; j++) {
+        const e = E[j], s = Math.max(0, ((shown[e[0]] - qlo[e[0]]) / qsp[e[0]] - LO) / (1 - LO)), v = s * s * WGAIN[e[2]], lv = Math.min(NLEV - 1, Math.floor(v * NLEV));
+        if (lv > 0) bucketsE[e[2] * NLEV + lv].push(j);
+      }
+      for (let w = 0; w < 3; w++) for (let lv = 1; lv < NLEV; lv++) {
+        const b = bucketsE[w * NLEV + lv]; if (!b.length) continue;
+        ctx.beginPath(); for (const j of b) curve(ctx, E[j][0], E[j][1]);
+        ctx.lineWidth = WIDTH[w]; ctx.strokeStyle = `rgba(17,134,89,${(amax * lv / (NLEV - 1)).toFixed(3)})`; ctx.stroke();
+      }
+      for (let u = 0; u < NU; u++) { const lv = Math.min(NLEV - 1, Math.floor(shown[u] * NLEV)); if (lv > 0) bucketsU[lv].push(u); }
+      for (let lv = 1; lv < NLEV; lv++) {
+        const b = bucketsU[lv]; if (!b.length) continue;
+        ctx.beginPath(); for (const u of b) { ctx.moveTo(X[u] + R0 + 0.5, Y[u]); ctx.arc(X[u], Y[u], R0 + 0.5, 0, 2 * Math.PI); }
+        ctx.fillStyle = `rgba(17,134,89,${(0.1 + 0.7 * lv / (NLEV - 1)).toFixed(3)})`; ctx.fill();
+      }
+    };
+
+    const again = () => { if (resize() && S.draw && !S.running) S.draw(); };
+    if (window.ResizeObserver) new ResizeObserver(again).observe(cv.parentNode); else window.addEventListener("resize", again);
+    if (document.fonts && document.fonts.load) document.fonts.load("10px " + MONO).then(() => { if (W) { drawStatic(); if (S.draw && !S.running) S.draw(); } }).catch(() => {});
+    return paint;
   }
 
   const start = () => { const r = document.getElementById("joystick-demo"); if (r) joystickDemo(r); };
